@@ -36,4 +36,9 @@ public class Room {
     west = room;
   }
 
+  //Making a toString
+   public String toString(){
+    return name + '\n' + description;
+   }
+
 }

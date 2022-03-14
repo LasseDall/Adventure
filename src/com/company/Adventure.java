@@ -109,5 +109,7 @@ public class Adventure {
         room9.setNorth(room6);
         room9.setWest(room8);
 
+
+
     }
 }
