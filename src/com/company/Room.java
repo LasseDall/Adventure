@@ -19,5 +19,21 @@ public class Room {
     west = null;
   }
 
+  //Making set methods
+  public void setNorth(Room room){
+    north = room;
+  }
+
+  public void setEast(Room room){
+    east = room;
+  }
+
+  public void setSouth(Room room){
+    south = room;
+  }
+
+  public void setWest(Room room){
+    west = room;
+  }
 
 }
