@@ -16,7 +16,9 @@ public class Adventure {
     Room room6 = new Room("Room 6", "You are in a bedroom. There is a person in the bed. A staircase leads to the upper floor");
     Room room7 = new Room("Room 7", "You are in a big closet. There is no closet in the room");
     Room room8 = new Room("Room 8", "You are in the dining room. There is served for 8 people");
-    Room room9 = new Room("Room 9", "You are in the library. There is an old radio playing white noise");
+    Room room9 = new Room("Library", "You are in the library. There are shelves all around you with old books. " +
+        "An old radio is playing white noise. The radio is placed next to a map lying on a table. The map is showing a continent" +
+        "that you have never seen before.");
 
     //Creating connections in all rooms
     public void createConnections(){
@@ -126,7 +128,7 @@ public class Adventure {
         }
     }
 
-    //Making help method
+    //Making helpInstructions method
     public void helpInstructions(){
         System.out.printf("You can choose to:" + "\n" +
             "Go north" + "\n" +
@@ -138,7 +140,7 @@ public class Adventure {
             "Exit" + "\n" + "\n");
     }
 
-    //Making pre-story
+    //Making pre-story method
     public void preStory(){
         System.out.println("You are on a holiday in the state of Georgia. You are driving on the country-side in the " +
             "\ndark night. Suddenly, you hear the engine starts to make sounds. You have no more throttle and " +
