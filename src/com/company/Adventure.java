@@ -77,7 +77,7 @@ public class Adventure {
                     programRunning = false;
                     break;
                 case "help":
-                    System.out.println("Help is here");
+                    helpInstructions();
                     break;
                 case "look":
                     System.out.println(currentRoom);
@@ -121,6 +121,15 @@ public class Adventure {
         } else {
             return null;
         }
+    }
+
+    //Making help method
+    public void helpInstructions(){
+        System.out.printf("You can choose to:" + "\n" +
+            "Go north" + "\n" +
+            "Go east" + "\n" +
+            "Go south" + "\n" +
+            "Go west");
     }
 
     public static void main(String[] args) {
