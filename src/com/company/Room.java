@@ -36,6 +36,22 @@ public class Room {
     west = room;
   }
 
+  //Making get methods
+  public Room getNorth(){
+    return north;
+  }
+
+  public Room getEast(){
+    return east;
+  }
+
+  public Room getSouth(){
+    return south;
+  }
+
+  public Room getWest(){
+    return west;
+  }
   //Making a toString
    public String toString(){
     return name + '\n' + description;
