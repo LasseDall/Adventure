@@ -137,6 +137,31 @@ public class Adventure {
             "Exit" + "\n" + "\n");
     }
 
+    //Making pre-story
+    public void preStory(){
+        System.out.println("You are on a holiday in the state of Georgia. You are driving on the country-side in the " +
+            "\ndark night. Suddenly, you hear the engine starts to make sounds. You have no more throttle and " +
+            "\nyour speed decreases. Your car stops at the side of road and the your lights shut down. " +
+            "\nThere is total darkness. There is a gravel road to your right side. At the end of the road, " +
+            "\nthere is an old house with a light pole blinking at the front door. You walk down the road and " +
+            "\nsee the house, which has no light inside it. You walk to the frontdoor and knocks three times."+
+            "\nThe door squeaks and opens a bit, as you knock. You can hear a gramophone, which is stuck in a " +
+            "\ngroove playing the song which, your mum sang to you, when you had to fall asleep, when you were a " +
+            "\nkid. You enter the house, it is totally dark and suddenly you hear a loud BAAANG, the door shuts " +
+            "\nbehind you. And at the same time, the light turns on. You look behind you, but there is no door " +
+            "\nbehind you anymore! You look around and find yourself in a big hallway with marble floor. The " +
+            "\nwalls are extremely elegant with beautiful wallpaper with red and gold stripes. On the wall to your" +
+            "\n right there is a mirror. You cannot see yourself in the mirror! You look down, there is compass " +
+            "\ndrawn on the floor at your feet. To your east there is a door and to the south there is a staircase" +
+            "\nleading up to upper floor. " +
+            "\nYou can choose to go in any direction 'Go north', 'go east', 'go south', 'go west'." +
+            "\nYou can ask for help by typing 'help'." +
+            "\nYou can get a description of which room you are in by typing 'look'"+
+            "\nIf you get too scared, you can type 'exit' to exit the game"
+        );
+    }
+
+
     public static void main(String[] args) {
         Adventure obj = new Adventure();
         obj.mainMenu();
