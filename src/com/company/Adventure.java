@@ -8,10 +8,10 @@ public class Adventure {
     Scanner sc = new Scanner(System.in);
 
     //Created all 9 rooms
-    Room room1 = new Room("Room 1", "Big hall with a big staircase in front of you");
+    Room room1 = new Room("Room 1", "You are in a big hall with a big staircase in front of you");
     Room room2 = new Room("Room 2", "You are in the kitchen, which has big black and white squares");
     Room room3 = new Room("Room 3", "You are in the office. There is a pig parrot in the corner that calls out your name");
-    Room room4 = new Room("Room 4", "You are on the first floor in a long hallway.");
+    Room room4 = new Room("Room 4", "You are on the first floor in a long hallway");
     Room room5 = new Room("Room 5", "You are in a room, where a person sits with its back towards you in front of a fire");
     Room room6 = new Room("Room 6", "You are in a bedroom. There is a person in the bed. A staircase leads to the upper floor");
     Room room7 = new Room("Room 7", "You are in a big closet. There is no closet in the room");
@@ -66,6 +66,8 @@ public class Adventure {
         System.out.println("Welcome to the Adventure-game");
         boolean programRunning = true;
         createConnections();
+        helpInstructions();
+        System.out.println(room1);
         while (programRunning) {
             System.out.println("Make your choice");
             String choice = userInput();
@@ -73,7 +75,7 @@ public class Adventure {
             String choice2 = secondWord(choice);
             switch (choice1) {
                 case "exit":
-                    System.out.println("Du lukker spillet");
+                    System.out.println("You are exiting the game");
                     programRunning = false;
                     break;
                 case "help":
@@ -129,7 +131,10 @@ public class Adventure {
             "Go north" + "\n" +
             "Go east" + "\n" +
             "Go south" + "\n" +
-            "Go west");
+            "Go west" + "\n" +
+            "Look (You get to know what room you are in)" + "\n" +
+            "Help" + "\n" +
+            "Exit" + "\n" + "\n");
     }
 
     public static void main(String[] args) {
