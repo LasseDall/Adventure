@@ -22,18 +22,30 @@ public class Room {
   //Making set methods
   public void setNorth(Room room){
     north = room;
+    if (room.getSouth() != this) {
+      room.setSouth(this);
+    }
   }
 
   public void setEast(Room room){
     east = room;
+    if (room.getWest() != this) {
+      room.setWest(this);
+    }
   }
 
   public void setSouth(Room room){
     south = room;
+    if (room.getNorth() != this) {
+      room.setNorth(this);
+    }
   }
 
   public void setWest(Room room){
     west = room;
+    if (room.getEast() != this) {
+      room.setEast(this);
+    }
   }
 
   //Making get methods
