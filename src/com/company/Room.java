@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Room {
   //Making attributes
   private String name;
@@ -8,6 +10,7 @@ public class Room {
   private Room east;
   private Room south;
   private Room west;
+  private ArrayList<Item> items = new ArrayList<>();
 
   //Creating constructor method
   public Room(String name, String description){
@@ -46,6 +49,14 @@ public class Room {
     if (room.getEast() != this) {
       room.setEast(this);
     }
+  }
+
+  public void setItems(Item item) {
+    this.items.add(item);
+  }
+
+  public ArrayList<Item> getItems() {
+    return items;
   }
 
   //Making get methods

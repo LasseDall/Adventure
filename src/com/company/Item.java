@@ -12,4 +12,8 @@ public class Item {
     this.size = size;
   }
 
+  public String toString() {
+    return name + " - " + description;
+  }
+
 }

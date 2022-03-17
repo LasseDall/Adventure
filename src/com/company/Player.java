@@ -1,10 +1,17 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Player {
   Map map = new Map();
 
   Room requestedRoom = map.room1;
   Room currentRoom = map.room1;
+  ArrayList<Item> items = new ArrayList<>();
+
+  public Player() {
+    items.add("Flashlight", "Blinking", 2);
+  }
 
   public void roomEntered(Room room, String direction){
     switch (direction){

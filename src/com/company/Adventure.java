@@ -2,7 +2,7 @@ package com.company;
 
 public class Adventure {
     public static void main(String[] args) {
-        GameEngine startGame = new GameEngine();
-        startGame.mainMenu();
+        Map map = new Map();
+        System.out.println(map.room8.getItems());
     }
 }
