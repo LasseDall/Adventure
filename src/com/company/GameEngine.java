@@ -21,25 +21,45 @@ public class GameEngine {
       String firstWord = firstWord(choice);
       String secondWord = secondWord(choice);
       switch (firstWord) {
-        case "exit":
+        case "exit" -> {
           userInterface.exitInstructions();
           programRunning = false;
-          break;
-        case "help":
+        }
+        case "help" -> {
           userInterface.helpInstructions();
-          break;
-        case "look":
+        }
+        case "look" -> {
           System.out.println(player.currentRoom);
-          break;
-        case "go":
-          player.roomEntered(player.currentRoom,secondWord);
-          if (player.requestedRoom!=null){
-            player.currentRoom=player.requestedRoom;
+        }
+        case "go" -> {
+          player.roomEntered(player.currentRoom, secondWord);
+          if (player.requestedRoom != null) {
+            player.currentRoom = player.requestedRoom;
             System.out.println(player.currentRoom);
           } else {
             System.out.println("You cannot go in that direction");
           }
           player.requestedRoom = null;
+        }
+        case "take" -> {
+          player.takeItem(player.currentRoom, secondWord);
+          if (player.itemFound == true) {
+            System.out.println("You picked up a " + secondWord);
+          } else {
+            System.out.println("No item was found");
+          }
+        }
+        case "inventory" -> {
+          System.out.println(player.items);
+        }
+        case "drop" -> {
+          player.dropItem(player.currentRoom, secondWord);
+          if (player.itemFound == true) {
+            System.out.println("You dropped a " + secondWord);
+          } else {
+            System.out.println("No item was found");
+          }
+        }
       }
     }
   }
@@ -71,6 +91,4 @@ public class GameEngine {
       return null;
     }
   }
-
-
 }

@@ -54,11 +54,15 @@ public class Room {
 
   //Making methods for items
   public void setItems(Item item) {
-    this.items.add(item);
+    items.add(item);
   }
 
   public ArrayList<Item> getItems() {
     return items;
+  }
+
+  public void removeItem(Item item) {
+    items.remove(item);
   }
 
   //Making get methods

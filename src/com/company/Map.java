@@ -51,6 +51,9 @@ public class Map {
     room3.setItems(book);
     room9.setItems(radio);
     room9.setItems(map);
+
+    //Adding items carried by player
+    flashlight.setCarried(true);
   }
 }
 
