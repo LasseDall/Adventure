@@ -11,7 +11,7 @@ public class Player {
   ArrayList<Item> items = new ArrayList<>();
 
   public Player() {
-    items.add("Flashlight", "Blinking", 2);
+    items.add(map.flashlight);
   }
 
   public void roomEntered(Room room, String direction){
@@ -21,5 +21,13 @@ public class Player {
       case "south", "s", "syd" -> requestedRoom = room.getSouth();
       case "west","w", "v","vest" -> requestedRoom = room.getWest();
     }
+  }
+
+  public void setItems(Item item) {
+    items.add(item);
+  }
+
+  public ArrayList<Item> getItems() {
+    return items;
   }
 }
