@@ -1,11 +1,18 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Player {
 
   Map map = new Map();
 
   Room requestedRoom = map.room1;
   Room currentRoom = map.room1;
+  ArrayList<Item> items = new ArrayList<>();
+
+  public Player() {
+    items.add(map.flashlight);
+  }
 
   public void roomEntered(Room room, String direction){
     switch (direction){
@@ -14,5 +21,13 @@ public class Player {
       case "south", "s", "syd" -> requestedRoom = room.getSouth();
       case "west","w", "v","vest" -> requestedRoom = room.getWest();
     }
+  }
+
+  public void setItems(Item item) {
+    items.add(item);
+  }
+
+  public ArrayList<Item> getItems() {
+    return items;
   }
 }

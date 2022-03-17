@@ -52,9 +52,13 @@ public class Room {
     }
   }
 
-  //Making set method for items
-  public void setItems(Item item){
+  //Making methods for items
+  public void setItems(Item item) {
     this.items.add(item);
+  }
+
+  public ArrayList<Item> getItems() {
+    return items;
   }
 
   //Making get methods
@@ -72,11 +76,6 @@ public class Room {
 
   public Room getWest(){
     return west;
-  }
-
-  //Making get method for items
-  public ArrayList<Item> getItems(){
-    return items;
   }
 
   //Making a toString

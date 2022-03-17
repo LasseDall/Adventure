@@ -29,6 +29,7 @@ public class Map {
   Item radio = new Item("Radio","An old radio",4);
   Item book = new Item("Book","An old magic book which reads XXX", 2);
   Item flashlight = new Item("Flashlight", "An old flashlight blinking",1);
+  Item map = new Item("Map", "Old map of America", 1);
   Item knife = new Item("Knife","An old rusty knife",2);
 
 
@@ -48,6 +49,7 @@ public class Map {
     room9.setItems(radio);
     room9.setItems(knife);
     room3.setItems(book);
+    room9.setItems(map);
   }
 
 
