@@ -22,7 +22,7 @@ public class GameEngine {
       String secondWord = secondWord(choice);
       switch (firstWord) {
         case "exit":
-          System.out.println("You are exiting the game");
+          userInterface.exitInstructions();
           programRunning = false;
           break;
         case "help":

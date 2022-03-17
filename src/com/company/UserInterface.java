@@ -44,4 +44,9 @@ public class UserInterface {
         "Exit" + "\n" + "\n");
   }
 
+  //Making exit printout
+  public void exitInstructions() {
+    System.out.println("You are exiting the game");
+  }
+
 }
