@@ -25,11 +25,18 @@ public class Map {
       "\nAn old radio is playing white noise. The radio is placed next to a map lying on a table. The map is showing a continent " +
       "\nthat you have never seen before.");
 
-  Item radio = new Item("Radio", "Playing white noise", 4);
 
+
+
+  //Instantiating items
+  Item radio = new Item("Radio","An old radio",4);
+  Item book = new Item("Book","An old magic book which reads XXX", 2);
+  Item flashlight = new Item("Flashlight", "An old flashlight blinking",1);
   Item map = new Item("Map", "Old map of America", 1);
 
-  public Map() {
+
+  public Map(){
+    //Adding directions to rooms
     room1.setEast(room2);
     room1.setSouth(room4);
     room2.setEast(room3);
@@ -39,6 +46,9 @@ public class Map {
     room6.setSouth(room9);
     room7.setEast(room8);
     room8.setEast(room9);
+
+    //Adding items to rooms
+    room3.setItems(book);
     room9.setItems(radio);
     room9.setItems(map);
   }
