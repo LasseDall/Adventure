@@ -20,7 +20,7 @@ public class Room {
     east = null;
     south = null;
     west = null;
-    ArrayList<Item> items = this.items;
+    ArrayList<Item> items = null;
   }
 
   //Making set methods

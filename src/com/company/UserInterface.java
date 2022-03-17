@@ -5,7 +5,6 @@ public class UserInterface {
   public void welcome(){
     System.out.println("Welcome to the Adventure-game");
     preStory();
-    System.out.println("Make your choice");
   }
   //Making pre-story method
   public void preStory(){
@@ -49,4 +48,13 @@ public class UserInterface {
     System.out.println("You are exiting the game");
   }
 
+  //Print items text
+  public void itemPrintoutFromRoom(){
+    System.out.println("In the room you find the following items:");
+  }
+
+  //Print make choice
+  public void printChoice(){
+    System.out.println("Make your choice");
+  }
 }
