@@ -25,7 +25,7 @@ public class Map {
       "\nAn old radio is playing white noise. The radio is placed next to a map lying on a table. The map is showing a continent " +
       "\nthat you have never seen before.");
 
-  public void createConnections(){
+  public Map(){
     room1.setEast(room2);
     room1.setSouth(room4);
     room2.setEast(room3);
