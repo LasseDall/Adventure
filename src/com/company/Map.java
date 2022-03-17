@@ -26,14 +26,14 @@ public class Map {
       "\nthat you have never seen before.\n");
 
   //Instantiating items
-  Item radio = new Item("Radio","An old radio",4);
-  Item book = new Item("Book","An old magic book which reads 中国大书 ", 2);
-  Item flashlight = new Item("Flashlight", "An old flashlight blinking",1);
+  Item radio = new Item("Radio", "An old radio", 4);
+  Item book = new Item("Book", "An old magic book which reads 中国大书 ", 2);
+  Item flashlight = new Item("Flashlight", "An old flashlight blinking", 1);
   Item map = new Item("Map", "Old map of America", 1);
-  Item knife = new Item("Knife","An old rusty knife",2);
+  Item knife = new Item("Knife", "An old rusty knife", 2);
 
 
-  public Map(){
+  public Map() {
     //Adding directions to rooms
     room1.setEast(room2);
     room1.setSouth(room4);
@@ -50,13 +50,7 @@ public class Map {
     room9.setItems(radio);
     room9.setItems(knife);
     room9.setItems(map);
-
-    //Adding items carried by player
-    flashlight.setCarried(true);
   }
-
-
-
 }
 
 
