@@ -1,6 +1,7 @@
 package com.company;
 
 public class Player {
+
   Map map = new Map();
 
   Room requestedRoom = map.room1;
