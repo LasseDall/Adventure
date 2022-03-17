@@ -17,6 +17,7 @@ public class GameEngine {
     boolean programRunning = true;
     userInterface.welcome();
     while (programRunning) {
+      userInterface.printChoice();
       String choice = userInput();
       String firstWord = firstWord(choice);
       String secondWord = secondWord(choice);
@@ -36,6 +37,10 @@ public class GameEngine {
           if (player.requestedRoom != null) {
             player.currentRoom = player.requestedRoom;
             System.out.println(player.currentRoom);
+            if (player.currentRoom.getItems().size() != 0) {
+              userInterface.itemPrintoutFromRoom();
+              System.out.println(player.currentRoom.getItems());
+            }
           } else {
             System.out.println("You cannot go in that direction");
           }
