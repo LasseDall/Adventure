@@ -40,11 +40,12 @@ public class Map {
   Item paper = new Item("Paper", "Blank piece of paper", 1);
   Item parrot = new Item("Parrot", "Big parrot that repeats your name", 3);
   Item carpet = new Item("Carpet", "Long red carpet", 4);
-  Item picture = new Item("Picture", "Black and white portrait picture of a pale skinny man", 2);
+  Item picture = new Item("Picture", "Black and white portrait picture of a pale skinny man reminding you of dracula", 2);
   Item sock = new Item("Sock", "Smelly black sock", 1);
   Item turkey = new Item("Turkey", "Big oven baked turkey with crispy skin", 5);
   Item wine = new Item("Wine", "Old looking bottle of wine", 2);
   Item fork = new Item("Fork", "Silver fork", 1);
+  Item garlic = new Item("Garlic", "Very smelly dried garlic", 1);
 
 
 
@@ -64,6 +65,7 @@ public class Map {
     room3.setItems(book);
     room9.setItems(radio);
     room2.setItems(knife);
+    room2.setItems(garlic);
     room9.setItems(map);
     room3.setItems(paper);
     room3.setItems(pencil);
