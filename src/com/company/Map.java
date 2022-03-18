@@ -24,6 +24,11 @@ public class Map {
   Room room9 = new Room("Library\n", "You are in the library. There are shelves all around you with old books. " +
       "\nAn old radio is playing white noise. The radio is placed next to a map lying on a table. The map is showing a continent " +
       "\nthat you have never seen before.\n");
+  Room room10 = new Room("Cellar\n", "You crawl down a long narrow shaft and enter a cold dark cellar with rough stone walls. \n" +
+      "The smell of mold is overwhelming and you struggle to keep a calm breath. You dont see much, but as your breath \n" +
+      "get calm you hear a deep snoring from the opposite end og the cellar. You begin to see a bit more, and a silhouette \n" +
+      "of a strange creature shows up. You are convinced that you have lost your mind when you discover that the creature \n" +
+      "seems to have three heads.");
 
   //Instantiating items
   Item radio = new Item("Radio", "An old radio", 4);
