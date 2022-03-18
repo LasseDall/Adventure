@@ -13,7 +13,7 @@ public class Map {
   Room room4 = new Room("Hallway\n", "You walk into a long hallway. Old black and white portrait pictures fills the walls " +
       "\nUnderneath your feet a red carpet grace all along the hallway floor.\n");
   Room room5 = new Room("Living room\n", "You are in a room, where a person sits in a big armchair with its back towards you " +
-      "\n looking into a fireplace\n");
+      "\nlooking into a fireplace\n");
   Room room6 = new Room("Bedroom\n", "You walk into a bedroom. You freeze as you see a person laying in the double bed. " +
       "\nJust sleeping? A staircase leads to the upper floor\n");
   Room room7 = new Room("Closet\n", "You walk into a big closet. But there is no clothes in the room. The only thing left in there " +
@@ -59,6 +59,7 @@ public class Map {
     room6.setSouth(room9);
     room7.setEast(room8);
     room8.setEast(room9);
+    room5.setDown(room10);
 
     //Adding items to rooms
     room3.setItems(book);

@@ -4,6 +4,7 @@ package com.company;
 public class UserInterface {
   public void welcome(){
     System.out.println("Welcome to the Adventure-game");
+    System.out.println(" ");
     preStory();
   }
   //Making pre-story method
@@ -27,8 +28,8 @@ public class UserInterface {
         "\nYou can choose to go in any direction 'Go north', 'go east', 'go south', 'go west'." +
         "\nYou can ask for help by typing 'help'." +
         "\nYou can get a description of which room you are in by typing 'look'"+
-        "\nIf you get too scared, you can type 'exit' to exit the game"
-    );
+        "\nIf you get too scared, you can type 'exit' to exit the game" +
+        "\n ");
   }
 
   //Making helpInstructions method

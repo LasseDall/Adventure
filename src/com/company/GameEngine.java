@@ -40,9 +40,11 @@ public class GameEngine {
             if (player.currentRoom.getItems().size() != 0) {
               userInterface.itemPrintoutFromRoom();
               System.out.println(player.currentRoom.getItems());
+              System.out.println(" ");
             }
           } else {
             System.out.println("You cannot go in that direction");
+            System.out.println(" ");
           }
           player.requestedRoom = null;
         }
@@ -50,19 +52,24 @@ public class GameEngine {
           player.takeItem(player.currentRoom, secondWord);
           if (player.itemFound == true) {
             System.out.println("You picked up a " + secondWord);
+            System.out.println(" ");
           } else {
             System.out.println("No item was found");
+            System.out.println(" ");
           }
         }
         case "inventory" -> {
           System.out.println(player.items);
+          System.out.println(" ");
         }
         case "drop" -> {
           player.dropItem(player.currentRoom, secondWord);
           if (player.itemFound == true) {
             System.out.println("You dropped a " + secondWord);
+            System.out.println(" ");
           } else {
             System.out.println("No item was found");
+            System.out.println(" ");
           }
         }
           default -> System.out.println("Your command did not match any legal commands. Type 'help' for instructions. \n");

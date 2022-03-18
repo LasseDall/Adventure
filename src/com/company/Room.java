@@ -56,6 +56,20 @@ public class Room {
     }
   }
 
+  public void setUp(Room room){
+    up = room;
+    if (room.getDown() != this) {
+      room.setDown(this);
+    }
+  }
+
+  public void setDown(Room room){
+    down = room;
+    if (room.getUp() != this) {
+      room.setUp(this);
+    }
+  }
+
   //Making methods for items
   public void setItems(Item item) {
     items.add(item);
