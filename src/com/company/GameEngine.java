@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 //This class is our controller
@@ -50,7 +51,7 @@ public class GameEngine {
         }
         case "take" -> {
           player.takeItem(player.getCurrentRoom(), secondWord);
-          if (player.getItemFound() == true) {
+          if (player.getItemFound()) {
             System.out.println("You picked up a " + secondWord);
             System.out.println(" ");
           } else {
@@ -67,10 +68,11 @@ public class GameEngine {
           if (player.getItemFound()) {
             System.out.println("You dropped a " + secondWord);
             System.out.println(" ");
-            if (secondWord.equals("garlic") && player.getCurrentRoom() == map.room5 && !map.room5.getCreatureLeft()) {
-              System.out.println(userInterface.vampireFleet());
-              System.out.println("Take af closer 'look' at the  room!");
-              map.room5.setCreatureLeft(true);
+            if ((secondWord.equals("garlic")) && (!player.map.room5.getCreatureLeft()) && player.getCurrentRoom().getName().equals(map.room5.getName())) {
+                System.out.println(userInterface.vampireFleet());
+                System.out.println("Take af closer 'look' at the room!");
+              System.out.println(" ");
+                player.map.room5.setCreatureLeft(true);
             }
           } else {
             System.out.println("No item was found");
@@ -79,13 +81,13 @@ public class GameEngine {
         }
           default -> System.out.println("Your command did not match any legal commands. Type 'help' for instructions. \n");
       }
-      if (!map.room5.getDoorLocked() && map.room5.getCreatureLeft()) {
-        map.connectRoom10();
-        map.room5.setDescription(userInterface.room5OpenGateDescription());
-      } else if (map.room5.getCreatureLeft() && map.room5.getDoorLocked()) {
-        map.room5.setDescription(userInterface.room5LockedGateDescription());
-      } else if (map.picture.getItemSeen()) {
-        map.room5.setDescription(userInterface.room5DraculaDescription());
+      if (!player.map.room5.getDoorLocked() && player.map.room5.getCreatureLeft()) {
+        player.map.connectRoom10();
+        player.map.room5.setDescription(userInterface.room5OpenGateDescription());
+      } else if (player.map.room5.getCreatureLeft() && player.map.room5.getDoorLocked()) {
+        player.map.room5.setDescription(userInterface.room5LockedGateDescription());
+      } else if (player.map.picture.getItemSeen()) {
+        player.map.room5.setDescription(userInterface.room5DraculaDescription());
       }
     }
   }
