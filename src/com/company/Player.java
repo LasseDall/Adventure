@@ -34,6 +34,7 @@ public class Player {
       for (int i = 0; i < room.getItems().size(); i++) {
         if (item.equals(room.getItems().get(i).getName().toLowerCase(Locale.ROOT))) {
           items.add(room.getItems().get(i));
+          room.getItems().get(i).setItemSeen(true);
           room.removeItem(room.getItems().get(i));
           itemFound = true;
           i = room.getItems().size();
