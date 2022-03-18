@@ -30,27 +30,27 @@ public class GameEngine {
           userInterface.helpInstructions();
         }
         case "look" -> {
-          System.out.println(player.currentRoom);
+          System.out.println(player.getCurrentRoom());
         }
         case "go" -> {
-          player.roomEntered(player.currentRoom, secondWord);
-          if (player.requestedRoom != null) {
-            player.currentRoom = player.requestedRoom;
-            System.out.println(player.currentRoom);
-            if (player.currentRoom.getItems().size() != 0) {
+          player.roomEntered(player.getCurrentRoom(), secondWord);
+          if (player.getRequestedRoom() != null) {
+            player.setCurrentRoom(player.getRequestedRoom());
+            System.out.println(player.getCurrentRoom());
+            if (player.getCurrentRoom().getItems().size() != 0) {
               userInterface.itemPrintoutFromRoom();
-              System.out.println(player.currentRoom.getItems());
+              System.out.println(player.getCurrentRoom().getItems());
               System.out.println(" ");
             }
           } else {
             System.out.println("You cannot go in that direction");
             System.out.println(" ");
           }
-          player.requestedRoom = null;
+          player.setRequestedRoom(null);
         }
         case "take" -> {
-          player.takeItem(player.currentRoom, secondWord);
-          if (player.itemFound == true) {
+          player.takeItem(player.getCurrentRoom(), secondWord);
+          if (player.getItemFound() == true) {
             System.out.println("You picked up a " + secondWord);
             System.out.println(" ");
           } else {
@@ -59,27 +59,33 @@ public class GameEngine {
           }
         }
         case "inventory" -> {
-          System.out.println(player.items);
+          System.out.println(player.getItems());
           System.out.println(" ");
         }
         case "drop" -> {
-          player.dropItem(player.currentRoom, secondWord);
-          if (player.itemFound == true) {
+          player.dropItem(player.getCurrentRoom(), secondWord);
+          if (player.getItemFound()) {
             System.out.println("You dropped a " + secondWord);
             System.out.println(" ");
+            if (secondWord.equals("garlic") && player.getCurrentRoom() == map.room5 && !map.room5.getCreatureLeft()) {
+              System.out.println(userInterface.vampireFleet());
+              System.out.println("Take af closer 'look' at the  room!");
+              map.room5.setCreatureLeft(true);
+            }
           } else {
             System.out.println("No item was found");
             System.out.println(" ");
           }
-
         }
           default -> System.out.println("Your command did not match any legal commands. Type 'help' for instructions. \n");
       }
-      if (map.room5.getDoorLocked() == false && map.room5.getCreatureLeft() == true) {
+      if (!map.room5.getDoorLocked() && map.room5.getCreatureLeft()) {
         map.connectRoom10();
         map.room5.setDescription(userInterface.room5OpenGateDescription());
-      } else if (map.room5.getCreatureLeft() == true && map.room5.getDoorLocked() == true) {
+      } else if (map.room5.getCreatureLeft() && map.room5.getDoorLocked()) {
         map.room5.setDescription(userInterface.room5LockedGateDescription());
+      } else if (map.picture.getItemSeen()) {
+        map.room5.setDescription(userInterface.room5DraculaDescription());
       }
     }
   }
