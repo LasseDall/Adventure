@@ -70,4 +70,10 @@ public class UserInterface {
   public String room5LockedGateDescription() {
     return "Where the man were sitting is a locked gate in the floor. Maybe that is the way out.";
   }
+
+  public String room5DraculaDescription() {
+    return "You are in a room, where a person sits in a big armchair with its back towards you " +
+        "\nlooking into a fireplace. The chair turns against you, and you recognize" +
+        "\nthe pale skinny man from the picture in the hallway";
+  }
 }
