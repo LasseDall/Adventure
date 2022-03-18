@@ -65,6 +65,7 @@ public class GameEngine {
             System.out.println("No item was found");
           }
         }
+          default -> System.out.println("Your command did not match any legal commands. Type 'help' for instructions. \n");
       }
     }
   }
