@@ -23,6 +23,8 @@ public class Player {
       case "east", "e","ø", "øst" -> requestedRoom = room.getEast();
       case "south", "s", "syd" -> requestedRoom = room.getSouth();
       case "west","w", "v","vest" -> requestedRoom = room.getWest();
+      case "up" -> requestedRoom = room.getUp();
+      case "down" -> requestedRoom = room.getDown();
     }
   }
 

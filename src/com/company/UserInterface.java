@@ -38,6 +38,8 @@ public class UserInterface {
         "Go east" + "\n" +
         "Go south" + "\n" +
         "Go west" + "\n" +
+        "Go up" + "\n" +
+        "Go down" + "\n" +
         "Look (You get to know what room you are in)" + "\n" +
         "Help" + "\n" +
         "Take (followed by the item you wish to take)" + "\n" +
