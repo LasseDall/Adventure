@@ -29,8 +29,18 @@ public class Map {
   Item radio = new Item("Radio", "An old radio", 4);
   Item book = new Item("Book", "An old magic book which reads 中国大书 ", 2);
   Item flashlight = new Item("Flashlight", "An old flashlight blinking", 1);
-  Item map = new Item("Map", "Old map of America", 1);
+  Item map = new Item("Map", "Old map of a strange continent", 1);
   Item knife = new Item("Knife", "An old rusty knife", 2);
+  Item pencil = new Item("Pencil", "Old pencil drawing with ink", 1);
+  Item paper = new Item("Paper", "Blank piece of paper", 1);
+  Item parrot = new Item("Parrot", "Big parrot that repeats your name", 3);
+  Item carpet = new Item("Carpet", "Long red carpet", 4);
+  Item picture = new Item("Picture", "Black and white portrait picture of a pale skinny man", 2);
+  Item sock = new Item("Sock", "Smelly black sock", 1);
+  Item turkey = new Item("Turkey", "Big oven baked turkey with crispy skin", 5);
+  Item wine = new Item("Wine", "Old looking bottle of wine", 2);
+  Item fork = new Item("Fork", "Silver fork", 1);
+
 
 
   public Map() {
@@ -48,8 +58,17 @@ public class Map {
     //Adding items to rooms
     room3.setItems(book);
     room9.setItems(radio);
-    room9.setItems(knife);
+    room2.setItems(knife);
     room9.setItems(map);
+    room3.setItems(paper);
+    room3.setItems(pencil);
+    room4.setItems(picture);
+    room4.setItems(carpet);
+    room7.setItems(sock);
+    room8.setItems(wine);
+    room8.setItems(fork);
+    room8.setItems(turkey);
+    room3.setItems(parrot);
   }
 }
 
