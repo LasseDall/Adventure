@@ -28,7 +28,8 @@ public class Player {
 
   public void takeItem(Room room, String item) {
     itemFound = false;
-    for (int i = 0; i < room.getItems().size(); i++) {
+    if (item != null) {
+      for (int i = 0; i < room.getItems().size(); i++) {
         if (item.equals(room.getItems().get(i).getName().toLowerCase(Locale.ROOT))) {
           items.add(room.getItems().get(i));
           room.removeItem(room.getItems().get(i));
@@ -36,16 +37,19 @@ public class Player {
           i = room.getItems().size();
         }
       }
+    }
   }
 
   public void dropItem(Room room, String item) {
     itemFound = false;
-    for (int i = 0; i < items.size(); i++) {
-      if (item.equals(items.get(i).getName().toLowerCase(Locale.ROOT))) {
-        room.setItems(items.get(i));
-        items.remove(items.get(i));
-        itemFound = true;
-        i = items.size();
+    if (item != null) {
+      for (int i = 0; i < items.size(); i++) {
+        if (item.equals(items.get(i).getName().toLowerCase(Locale.ROOT))) {
+          room.setItems(items.get(i));
+          items.remove(items.get(i));
+          itemFound = true;
+          i = items.size();
+        }
       }
     }
   }
