@@ -10,6 +10,8 @@ public class Room {
   private Room east;
   private Room south;
   private Room west;
+  private Room up;
+  private Room down;
   private ArrayList<Item> items = new ArrayList<>();
 
   //Creating constructor method
@@ -20,6 +22,8 @@ public class Room {
     east = null;
     south = null;
     west = null;
+    up = null;
+    down = null;
     ArrayList<Item> items = null;
   }
 
@@ -80,6 +84,14 @@ public class Room {
 
   public Room getWest(){
     return west;
+  }
+
+  public Room getDown() {
+    return down;
+  }
+
+  public Room getUp() {
+    return up;
   }
 
   //Making a toString
