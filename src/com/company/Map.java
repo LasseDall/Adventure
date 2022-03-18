@@ -59,7 +59,6 @@ public class Map {
     room6.setSouth(room9);
     room7.setEast(room8);
     room8.setEast(room9);
-    room5.setDown(room10);
 
     //Adding items to rooms
     room3.setItems(book);
@@ -75,6 +74,10 @@ public class Map {
     room8.setItems(fork);
     room8.setItems(turkey);
     room3.setItems(parrot);
+  }
+
+  public void connectRoom10() {
+    room5.setDown(room10);
   }
 }
 
