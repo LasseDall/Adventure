@@ -64,20 +64,20 @@ public class UserInterface {
   }
 
   public String room5OpenGateDescription() {
-    return "Where the man were sitting has know opened a gate, where a ladder leads down into deep darkness.";
+    return "Where the man were sitting has know opened a gate, where a ladder leads down into deep darkness.\n";
   }
 
   public String room5LockedGateDescription() {
-    return "Where the man were sitting is a locked gate in the floor. Maybe that is the way out.";
+    return "Where the man were sitting is a locked gate in the floor. Maybe that is the way out.\n";
   }
 
   public String room5DraculaDescription() {
     return "You are in a room, where a person sits in a big armchair with its back towards you " +
         "\nlooking into a fireplace. The chair turns against you, and you recognize" +
-        "\nthe pale skinny man from the picture in the hallway";
+        "\nthe pale skinny man from the picture in the hallway\n";
   }
 
   public String vampireFleet() {
-    return "As you drop the garlic the man panic and run as fast as he can through the door.";
+    return "As you drop the garlic the man panic and run as fast as he can through the door.\n";
   }
 }
