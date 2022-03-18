@@ -7,22 +7,22 @@ public class Player {
 
   Map map = new Map();
 
-  boolean itemFound;
+  private boolean itemFound;
 
-  Room requestedRoom = map.room1;
-  Room currentRoom = map.room1;
-  ArrayList<Item> items = new ArrayList<>();
+  private Room requestedRoom = map.room1;
+  private Room currentRoom = map.room1;
+  private ArrayList<Item> items = new ArrayList<>();
 
   public Player() {
     items.add(map.flashlight);
   }
 
-  public void roomEntered(Room room, String direction){
-    switch (direction){
+  public void roomEntered(Room room, String direction) {
+    switch (direction) {
       case "north", "n", "nord" -> requestedRoom = room.getNorth();
-      case "east", "e","ø", "øst" -> requestedRoom = room.getEast();
+      case "east", "e", "ø", "øst" -> requestedRoom = room.getEast();
       case "south", "s", "syd" -> requestedRoom = room.getSouth();
-      case "west","w", "v","vest" -> requestedRoom = room.getWest();
+      case "west", "w", "v", "vest" -> requestedRoom = room.getWest();
       case "up" -> requestedRoom = room.getUp();
       case "down" -> requestedRoom = room.getDown();
     }
@@ -63,5 +63,25 @@ public class Player {
 
   public ArrayList<Item> getItems() {
     return items;
+  }
+
+  public Room getCurrentRoom() {
+    return currentRoom;
+  }
+
+  public Room getRequestedRoom() {
+    return requestedRoom;
+  }
+
+  public boolean getItemFound() {
+    return itemFound;
+  }
+
+  public void setCurrentRoom(Room currentRoom) {
+  this.currentRoom = currentRoom;
+  }
+
+  public void setRequestedRoom(Room requestedRoom) {
+    this.requestedRoom = requestedRoom;
   }
 }
