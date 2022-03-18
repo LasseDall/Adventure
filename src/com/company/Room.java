@@ -91,6 +91,10 @@ public class Room {
     this.description = description;
   }
 
+  public String getName() {
+    return name;
+  }
+
   public boolean getCreatureLeft() {
     return creatureLeft;
   }
