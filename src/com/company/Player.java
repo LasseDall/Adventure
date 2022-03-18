@@ -9,22 +9,26 @@ public class Player {
 
   private boolean itemFound;
 
-  private Room requestedRoom = map.room1;
-  private Room currentRoom = map.room1;
+  private Room requestedRoom;
+  private Room currentRoom;
   private ArrayList<Item> items = new ArrayList<>();
 
   public Player() {
     items.add(map.flashlight);
+    requestedRoom = map.room1;
+    currentRoom = map.room1;
   }
 
   public void roomEntered(Room room, String direction) {
-    switch (direction) {
-      case "north", "n", "nord" -> requestedRoom = room.getNorth();
-      case "east", "e", "ø", "øst" -> requestedRoom = room.getEast();
-      case "south", "s", "syd" -> requestedRoom = room.getSouth();
-      case "west", "w", "v", "vest" -> requestedRoom = room.getWest();
-      case "up" -> requestedRoom = room.getUp();
-      case "down" -> requestedRoom = room.getDown();
+    if (direction != null) {
+      switch (direction) {
+        case "north", "n", "nord" -> requestedRoom = room.getNorth();
+        case "east", "e", "ø", "øst" -> requestedRoom = room.getEast();
+        case "south", "s", "syd" -> requestedRoom = room.getSouth();
+        case "west", "w", "v", "vest" -> requestedRoom = room.getWest();
+        case "up" -> requestedRoom = room.getUp();
+        case "down" -> requestedRoom = room.getDown();
+      }
     }
   }
 
