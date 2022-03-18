@@ -27,7 +27,7 @@ public class Room {
     up = null;
     down = null;
     ArrayList<Item> items = null;
-    doorLocked = false;
+    doorLocked = true;
     creatureLeft = false;
   }
 
@@ -85,6 +85,18 @@ public class Room {
 
   public void setCreatureLeft(boolean creatureLeft) {
     this.creatureLeft = creatureLeft;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public boolean getCreatureLeft() {
+    return creatureLeft;
+  }
+
+  public boolean getDoorLocked() {
+    return doorLocked;
   }
 
   public ArrayList<Item> getItems() {
