@@ -25,4 +25,8 @@ public class Item {
   public void setItemSeen(boolean itemSeen) {
     this.itemSeen = itemSeen;
   }
+
+  public boolean getItemSeen() {
+    return itemSeen;
+  }
 }
