@@ -13,6 +13,8 @@ public class Room {
   private Room up;
   private Room down;
   private ArrayList<Item> items = new ArrayList<>();
+  private boolean doorLocked;
+  private boolean creatureLeft;
 
   //Creating constructor method
   public Room(String name, String description){
@@ -25,6 +27,8 @@ public class Room {
     up = null;
     down = null;
     ArrayList<Item> items = null;
+    doorLocked = false;
+    creatureLeft = false;
   }
 
   //Making set methods
@@ -73,6 +77,14 @@ public class Room {
   //Making methods for items
   public void setItems(Item item) {
     items.add(item);
+  }
+
+  public void setDoorLocked(boolean doorLocked) {
+    this.doorLocked = doorLocked;
+  }
+
+  public void setCreatureLeft(boolean creatureLeft) {
+    this.creatureLeft = creatureLeft;
   }
 
   public ArrayList<Item> getItems() {
