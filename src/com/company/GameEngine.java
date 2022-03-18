@@ -71,8 +71,15 @@ public class GameEngine {
             System.out.println("No item was found");
             System.out.println(" ");
           }
+
         }
           default -> System.out.println("Your command did not match any legal commands. Type 'help' for instructions. \n");
+      }
+      if (map.room5.getDoorLocked() == false && map.room5.getCreatureLeft() == true) {
+        map.connectRoom10();
+        map.room5.setDescription(userInterface.room5OpenGateDescription());
+      } else if (map.room5.getCreatureLeft() == true && map.room5.getDoorLocked() == true) {
+        map.room5.setDescription(userInterface.room5LockedGateDescription());
       }
     }
   }
