@@ -62,4 +62,12 @@ public class UserInterface {
   public void printChoice(){
     System.out.println("Make your choice");
   }
+
+  public String room5OpenGateDescription() {
+    return "Where the man were sitting has know opened a gate, where a ladder leads down into deep darkness.";
+  }
+
+  public String room5LockedGateDescription() {
+    return "Where the man were sitting is a locked gate in the floor. Maybe that is the way out.";
+  }
 }
