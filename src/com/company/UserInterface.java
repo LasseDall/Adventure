@@ -40,6 +40,8 @@ public class UserInterface {
         "Go west" + "\n" +
         "Look (You get to know what room you are in)" + "\n" +
         "Help" + "\n" +
+        "Take (followed by the item you wish to take)" + "\n" +
+        "Drop (followed by the item you wish to drop)" + "\n" +
         "Exit" + "\n" + "\n");
   }
 
