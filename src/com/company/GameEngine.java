@@ -1,6 +1,5 @@
 package com.company;
 
-import java.util.Locale;
 import java.util.Scanner;
 
 //This class is our controller
@@ -49,7 +48,7 @@ public class GameEngine {
           player.setRequestedRoom(null);
         }
         case "take" -> {
-          player.takeItem(player.getCurrentRoom(), secondWord);
+          player.takeItem(secondWord);
           if (player.getItemFound()) {
             System.out.println("You picked up a " + secondWord);
             System.out.println(" ");
@@ -63,7 +62,7 @@ public class GameEngine {
           System.out.println(" ");
         }
         case "drop" -> {
-          player.dropItem(player.getCurrentRoom(), secondWord);
+          player.dropItem(secondWord);
           if (player.getItemFound()) {
             System.out.println("You dropped a " + secondWord);
             System.out.println(" ");

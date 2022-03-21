@@ -32,34 +32,35 @@ public class Player {
     }
   }
 
-  public void takeItem(Room room, String item) {
+  public void takeItem(String itemName) {
     itemFound = false;
-    if (item != null) {
-      for (int i = 0; i < room.getItems().size(); i++) {
-        if (item.equals(room.getItems().get(i).getName().toLowerCase(Locale.ROOT))) {
-          inventory.add(room.getItems().get(i));
-          room.getItems().get(i).setItemSeen(true);
-          room.removeItem(room.getItems().get(i));
-          itemFound = true;
-          i = room.getItems().size();
-        }
-      }
+    Item item = findItem(currentRoom.getItems(), itemName);
+    if (item!=null) {
+      inventory.add(item);
+      item.setItemSeen(true);
+      currentRoom.removeItem(item);
     }
   }
 
-  public void dropItem(Room room, String item) {
+  /*for (int i = 0; i < room.getItems().size(); i++) {*/
+  /*  if (itemName.equals(room.getItems().get(i).getName().toLowerCase(Locale.ROOT))) {*/
+  /*    inventory.add(room.getItems().get(i));*/
+  /*    room.getItems().get(i).setItemSeen(true);*/
+  /*    room.removeItem(room.getItems().get(i));*/
+  /*    itemFound = true;*/
+  /*    i = room.getItems().size();*/
+  /*  }*/
+  /*}*/
+
+  public void dropItem(String itemName) {
     itemFound = false;
-    if (item != null) {
-      for (int i = 0; i < inventory.size(); i++) {
-        if (item.equals(inventory.get(i).getName().toLowerCase(Locale.ROOT))) {
-          room.setItems(inventory.get(i));
-          inventory.remove(inventory.get(i));
-          itemFound = true;
-          i = inventory.size();
-        }
-      }
+    Item item = findItem(inventory, itemName);
+    if (item!=null) {
+      currentRoom.setItems(item);
+      item.setItemSeen(true);
+      inventory.remove(item);
     }
-  }
+      }
 
   public void addInventory(Item item) {
     inventory.add(item);
@@ -82,10 +83,23 @@ public class Player {
   }
 
   public void setCurrentRoom(Room currentRoom) {
-  this.currentRoom = currentRoom;
+    this.currentRoom = currentRoom;
   }
 
   public void setRequestedRoom(Room requestedRoom) {
     this.requestedRoom = requestedRoom;
+  }
+
+  public Item findItem(ArrayList<Item> items, String itemName) {
+    Item tmp = null;
+    if (itemName != null) {
+      for (Item item : items) {
+        if (item.getName().toLowerCase(Locale.ROOT).equals(itemName)) {
+          tmp = item;
+          break;
+        }
+      }
+    }
+    return tmp;
   }
 }
