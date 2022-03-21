@@ -67,7 +67,7 @@ public class GameEngine {
           if (player.getItemFound()) {
             System.out.println("You dropped a " + secondWord);
             System.out.println(" ");
-            if ((secondWord.equals("garlic")) && (!player.map.room5.getCreatureLeft()) && player.getCurrentRoom().getName().equals(map.room5.getName())) {
+            if ((secondWord.equals("garlic")) && (!player.map.room5.getCreatureLeft()) && player.getCurrentRoom().equals(player.map.room5)) {
                 System.out.println(userInterface.vampireFleet());
                 System.out.println("Take af closer 'look' at the room!");
               System.out.println(" ");
