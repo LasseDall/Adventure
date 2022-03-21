@@ -10,7 +10,11 @@ public class Room {
   private Room east;
   private Room south;
   private Room west;
+  private Room up;
+  private Room down;
   private ArrayList<Item> items = new ArrayList<>();
+  private boolean doorLocked;
+  private boolean creatureLeft;
 
   //Creating constructor method
   public Room(String name, String description){
@@ -20,7 +24,11 @@ public class Room {
     east = null;
     south = null;
     west = null;
+    up = null;
+    down = null;
     ArrayList<Item> items = null;
+    doorLocked = true;
+    creatureLeft = false;
   }
 
   //Making set methods
@@ -52,9 +60,47 @@ public class Room {
     }
   }
 
+  public void setUp(Room room){
+    up = room;
+    if (room.getDown() != this) {
+      room.setDown(this);
+    }
+  }
+
+  public void setDown(Room room){
+    down = room;
+    if (room.getUp() != this) {
+      room.setUp(this);
+    }
+  }
+
   //Making methods for items
   public void setItems(Item item) {
     items.add(item);
+  }
+
+  public void setDoorLocked(boolean doorLocked) {
+    this.doorLocked = doorLocked;
+  }
+
+  public void setCreatureLeft(boolean creatureLeft) {
+    this.creatureLeft = creatureLeft;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public boolean getCreatureLeft() {
+    return creatureLeft;
+  }
+
+  public boolean getDoorLocked() {
+    return doorLocked;
   }
 
   public ArrayList<Item> getItems() {
@@ -80,6 +126,14 @@ public class Room {
 
   public Room getWest(){
     return west;
+  }
+
+  public Room getDown() {
+    return down;
+  }
+
+  public Room getUp() {
+    return up;
   }
 
   //Making a toString

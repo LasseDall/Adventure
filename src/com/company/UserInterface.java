@@ -4,6 +4,7 @@ package com.company;
 public class UserInterface {
   public void welcome(){
     System.out.println("Welcome to the Adventure-game");
+    System.out.println(" ");
     preStory();
   }
   //Making pre-story method
@@ -27,8 +28,8 @@ public class UserInterface {
         "\nYou can choose to go in any direction 'Go north', 'go east', 'go south', 'go west'." +
         "\nYou can ask for help by typing 'help'." +
         "\nYou can get a description of which room you are in by typing 'look'"+
-        "\nIf you get too scared, you can type 'exit' to exit the game"
-    );
+        "\nIf you get too scared, you can type 'exit' to exit the game" +
+        "\n ");
   }
 
   //Making helpInstructions method
@@ -38,8 +39,12 @@ public class UserInterface {
         "Go east" + "\n" +
         "Go south" + "\n" +
         "Go west" + "\n" +
+        "Go up" + "\n" +
+        "Go down" + "\n" +
         "Look (You get to know what room you are in)" + "\n" +
         "Help" + "\n" +
+        "Take (followed by the item you wish to take)" + "\n" +
+        "Drop (followed by the item you wish to drop)" + "\n" +
         "Exit" + "\n" + "\n");
   }
 
@@ -56,5 +61,23 @@ public class UserInterface {
   //Print make choice
   public void printChoice(){
     System.out.println("Make your choice");
+  }
+
+  public String room5OpenGateDescription() {
+    return "Where the man were sitting has know opened a gate, where a ladder leads down into deep darkness.\n";
+  }
+
+  public String room5LockedGateDescription() {
+    return "Where the man were sitting is a locked gate in the floor. Maybe that is the way out.\n";
+  }
+
+  public String room5DraculaDescription() {
+    return "You are in a room, where a person sits in a big armchair with its back towards you " +
+        "\nlooking into a fireplace. The chair turns against you, and you recognize" +
+        "\nthe pale skinny man from the picture in the hallway\n";
+  }
+
+  public String vampireFleet() {
+    return "As you drop the garlic the man panic and run as fast as he can through the door.\n";
   }
 }

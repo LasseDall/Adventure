@@ -5,11 +5,13 @@ public class Item {
   private String name;
   private String description;
   private int size;
+  private boolean itemSeen;
 
   public Item(String name,String description,int size){
     this.name = name;
     this.description = description;
     this.size = size;
+    itemSeen = false;
   }
 
   public String toString() {
@@ -18,5 +20,13 @@ public class Item {
 
   public String getName() {
     return name;
+  }
+
+  public void setItemSeen(boolean itemSeen) {
+    this.itemSeen = itemSeen;
+  }
+
+  public boolean getItemSeen() {
+    return itemSeen;
   }
 }
