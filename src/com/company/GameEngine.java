@@ -77,6 +77,10 @@ public class GameEngine {
             System.out.println(" ");
           }
         }
+        case "health" -> { // TODO: 23/03/2022 Finish health case
+        }
+        case "eat" -> { // TODO: 23/03/2022 Finish eat case
+        }
           default -> System.out.println("Your command did not match any legal commands. Type 'help' for instructions. \n");
       }
       if (!player.map.room5.getDoorLocked() && player.map.room5.getCreatureLeft()) {

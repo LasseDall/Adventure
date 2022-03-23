@@ -39,6 +39,7 @@ public class Player {
       inventory.add(item);
       item.setItemSeen(true);
       currentRoom.removeItem(item);
+      itemFound = true;
     }
   }
 
@@ -59,6 +60,7 @@ public class Player {
       currentRoom.setItems(item);
       item.setItemSeen(true);
       inventory.remove(item);
+      itemFound = true;
     }
       }
 
