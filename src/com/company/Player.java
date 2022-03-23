@@ -9,6 +9,7 @@ public class Player {
 
   private boolean itemFound;
   private boolean gameOver = false;
+  private int carriedItems;
 
   private Room requestedRoom;
   private Room currentRoom;
@@ -40,10 +41,15 @@ public class Player {
     itemFound = false;
     Item item = findItem(currentRoom.getItems(), itemName);
     if (item != null) {
-      inventory.add(item);
-      item.setItemSeen(true);
-      currentRoom.removeItem(item);
       itemFound = true;
+      if (carriedItems + item.getSize() <= 10) {
+        inventory.add(item);
+        item.setItemSeen(true);
+        currentRoom.removeItem(item);
+        setCarriedItems(carriedItems + item.getSize());
+      } else {
+        System.out.println("You carrie too much weight to pick that up.");
+      }
     }
   }
 
@@ -55,6 +61,7 @@ public class Player {
       item.setItemSeen(true);
       inventory.remove(item);
       itemFound = true;
+      setCarriedItems(carriedItems - item.getSize());
     }
   }
 
@@ -97,6 +104,16 @@ public class Player {
     } else if (health <= 0){
       gameOver = true;
     }
+  }
+
+  public void setCarriedItems(int carriedItems) {
+    if (carriedItems <= 10) {
+      this.carriedItems = carriedItems;
+    }
+  }
+
+  public int getCarriedItems() {
+    return carriedItems;
   }
 
   public int getHealth() {

@@ -33,4 +33,8 @@ public class Item {
   public boolean getItemSeen() {
     return itemSeen;
   }
+
+  public int getSize() {
+    return size;
+  }
 }

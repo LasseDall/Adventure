@@ -54,8 +54,8 @@ public class GameEngine {
           if (player.getItemFound()) {
             System.out.println("You picked up a " + secondWord);
             System.out.println(" ");
-            player.setHealth(player.getHealth()-1);
-          } else {
+            player.setHealth(player.getHealth() - 1);
+            } else {
             System.out.println("No item was found");
             System.out.println(" ");
           }
