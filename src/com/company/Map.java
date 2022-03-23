@@ -32,28 +32,29 @@ public class Map {
 
   //Instantiating items
   Item radio = new Item("Radio", "An old radio", 4);
-  Item book = new Item("Book", "An old magic book which reads 中国大书 ", 2);
+  Item book = new Item("Book", "An old magic book which reads 中国大书 ", 3);
   Item flashlight = new Item("Flashlight", "An old flashlight blinking", 1);
-  Item map = new Item("Map", "Old map of a strange continent", 1);
+  Item map = new Item("Map", "Old map of a strange continent", 3);
   Item knife = new Item("Knife", "An old rusty knife", 2);
   Item pencil = new Item("Pencil", "Old pencil drawing with ink", 1);
   Item paper = new Item("Paper", "Blank piece of paper", 1);
   Item parrot = new Item("Parrot", "Big parrot that repeats your name", 3);
   Item carpet = new Item("Carpet", "Long red carpet", 4);
-  Item picture = new Item("Picture", "Black and white portrait picture of a pale skinny man reminding you of dracula", 2);
+  Item picture = new Item("Picture", "Black and white portrait picture of a pale skinny man reminding you of dracula", 3);
   Item sock = new Item("Sock", "Smelly black sock", 1);
   Item fork = new Item("Fork", "Silver fork", 1);
   Item garlic = new Item("Garlic", "Very smelly dried garlic", 1);
 
   //Instantiating food items
-  Food apple = new Food("Apple","A big red shiny apple. Do you dare to eat it?",1,-10);
-  Food carrot = new Food("Carrot","A delicious orange carrot",1,100);
-  Food turkey = new Food("Turkey","A big juicy turkey",5,30);
-  Food coffee = new Food("Coffee", "A dark smelly cup of coffee",1,20);
-  Food water = new Food("Water","A bottle of water",1,10);
-  Food shot = new Food("Shot", "A small glas of brown whiskey",1,-10);
-  Food scone = new Food("Scone","A delicious scone with chocolate topping",1,-20);
-  Food wine = new Food("Wine", "Old looking bottle of wine", 2,-100);
+  Food apple = new Food("Apple","A big red shiny apple. Do you dare to eat it?",2,-10, "");
+  Food carrot = new Food("Carrot","A delicious orange carrot",2,100, "");
+  Food turkey = new Food("Turkey","A big juicy turkey",5,30, "");
+  Food coffee = new Food("Coffee", "A dark smelly cup of coffee",2,20,"");
+  Food water = new Food("Water","A bottle of water",2,10, "The water feels nice in your dry mouth.\nDid you know that 60% of the human body weight is water?");
+  Food shot = new Food("Shot", "A small glas of brown whiskey",2,-10, "The whiskey taste bitter and you get a bit confused.\nDid you know that 3 million people die every year because of drinking alcohol?");
+  Food scone = new Food("Scone","A delicious scone with chocolate topping",2,-20, "The scone taste very good, but your stomach begins to rumble.\nDid you know that at least 2.8 million people die every year as a result of being overweight.");
+  Food wine = new Food("Wine", "Old looking bottle of wine", 3,-100, "You should have known better than to drink a bottle of wine!\nDid you know that an average adult in Denmark drink 9 units of alcohol every week?");
+
 
 
   public Map() {
@@ -99,6 +100,8 @@ public class Map {
     room5.setDown(room10);
   }
 }
+
+
 
 
 
