@@ -8,15 +8,19 @@ public class Player {
   Map map = new Map();
 
   private boolean itemFound;
+  private boolean gameOver = false;
 
   private Room requestedRoom;
   private Room currentRoom;
   private ArrayList<Item> inventory = new ArrayList<>();
 
+  private int health;
+
   public Player() {
     inventory.add(map.flashlight);
     requestedRoom = map.room1;
     currentRoom = map.room1;
+    health = 100;
   }
 
   public void roomEntered(Room room, String direction) {
@@ -35,7 +39,7 @@ public class Player {
   public void takeItem(String itemName) {
     itemFound = false;
     Item item = findItem(currentRoom.getItems(), itemName);
-    if (item!=null) {
+    if (item != null) {
       inventory.add(item);
       item.setItemSeen(true);
       currentRoom.removeItem(item);
@@ -43,26 +47,16 @@ public class Player {
     }
   }
 
-  /*for (int i = 0; i < room.getItems().size(); i++) {*/
-  /*  if (itemName.equals(room.getItems().get(i).getName().toLowerCase(Locale.ROOT))) {*/
-  /*    inventory.add(room.getItems().get(i));*/
-  /*    room.getItems().get(i).setItemSeen(true);*/
-  /*    room.removeItem(room.getItems().get(i));*/
-  /*    itemFound = true;*/
-  /*    i = room.getItems().size();*/
-  /*  }*/
-  /*}*/
-
   public void dropItem(String itemName) {
     itemFound = false;
     Item item = findItem(inventory, itemName);
-    if (item!=null) {
+    if (item != null) {
       currentRoom.setItems(item);
       item.setItemSeen(true);
       inventory.remove(item);
       itemFound = true;
     }
-      }
+  }
 
   public void addInventory(Item item) {
     inventory.add(item);
@@ -84,12 +78,29 @@ public class Player {
     return itemFound;
   }
 
+  public boolean isGameOver() {
+    return gameOver;
+  }
+
   public void setCurrentRoom(Room currentRoom) {
     this.currentRoom = currentRoom;
   }
 
   public void setRequestedRoom(Room requestedRoom) {
     this.requestedRoom = requestedRoom;
+  }
+
+  public void setHealth(int health) {
+    this.health = health;
+    if (health > 100){
+      this.health = 100;
+    } else if (health <= 0){
+      gameOver = true;
+    }
+  }
+
+  public int getHealth() {
+    return health;
   }
 
   public Item findItem(ArrayList<Item> items, String itemName) {
@@ -104,4 +115,13 @@ public class Player {
     }
     return tmp;
   }
-}
+
+  public Item findFood(String foodName) {
+    Item tmp = null;
+    tmp = findItem(inventory, foodName);
+    if (tmp == null) {
+      tmp = findItem(currentRoom.getItems(), foodName);
+    }
+    return tmp;
+    }
+  }

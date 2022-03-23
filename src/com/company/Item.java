@@ -22,6 +22,10 @@ public class Item {
     return name;
   }
 
+  public String getDescription() {
+    return description;
+  }
+
   public void setItemSeen(boolean itemSeen) {
     this.itemSeen = itemSeen;
   }

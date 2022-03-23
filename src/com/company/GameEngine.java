@@ -41,9 +41,11 @@ public class GameEngine {
               System.out.println(player.getCurrentRoom().getItems());
               System.out.println(" ");
             }
+            player.setHealth(player.getHealth()-3);
           } else {
             System.out.println("You cannot go in that direction");
             System.out.println(" ");
+            player.setHealth(player.getHealth()-1);
           }
           player.setRequestedRoom(null);
         }
@@ -52,12 +54,14 @@ public class GameEngine {
           if (player.getItemFound()) {
             System.out.println("You picked up a " + secondWord);
             System.out.println(" ");
+            player.setHealth(player.getHealth()-1);
           } else {
             System.out.println("No item was found");
             System.out.println(" ");
           }
         }
         case "inventory" -> {
+
           System.out.println(player.getInventory());
           System.out.println(" ");
         }
@@ -77,9 +81,21 @@ public class GameEngine {
             System.out.println(" ");
           }
         }
-        case "health" -> { // TODO: 23/03/2022 Finish health case
+        case "health" -> {
+          System.out.println(userInterface.printHealthStatus() + player.getHealth() + ": " + healthStatus(player.getHealth()) + "\n");
         }
-        case "eat" -> { // TODO: 23/03/2022 Finish eat case
+        case "eat", "drink" -> {
+          Item item = player.findFood(secondWord);
+          if (item instanceof Food){
+            player.setHealth(player.getHealth() + ((Food) item).getHealthSize());
+            if (player.isGameOver()){
+              programRunning = false;
+            }
+          } else if (item == null){
+            System.out.println("No item was found \n");
+          } else {
+            System.out.println("You cannot eat " + item);
+          }
         }
           default -> System.out.println("Your command did not match any legal commands. Type 'help' for instructions. \n");
       }
@@ -104,9 +120,8 @@ public class GameEngine {
   //Methods to divide words
   public String firstWord(String choice){
     String space = " ";
-    if (-1 != choice.indexOf(space)) {
-      String word = choice.substring(0, choice.indexOf(space));
-      return word;
+    if (choice.contains(space)) {
+      return choice.substring(0, choice.indexOf(space));
     } else {
       return choice;
     }
@@ -114,11 +129,23 @@ public class GameEngine {
 
   public String secondWord(String choice){
     String space = " ";
-    if (-1 != choice.indexOf(space)) {
-      String word = choice.substring(choice.indexOf(space) + 1);
-      return word;
+    if (choice.contains(space)) {
+      return choice.substring(choice.indexOf(space) + 1);
     } else {
       return null;
     }
+  }
+
+  //Method to calculate health status
+  public String healthStatus(int health){
+    String healthStatus;
+    if (health > 50){
+      healthStatus = userInterface.printGoodShape();
+    } else if (health < 50 && health > 25){
+      healthStatus = userInterface.printBeCautious();
+    } else{
+      healthStatus = userInterface.printBeCareful();
+    }
+    return healthStatus;
   }
 }

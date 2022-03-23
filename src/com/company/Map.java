@@ -53,7 +53,7 @@ public class Map {
   Food water = new Food("Water","A bottle of water",1,10);
   Food shot = new Food("Shot", "A small glas of brown whiskey",1,-10);
   Food scone = new Food("Scone","A delicious scone with chocolate topping",1,-20);
-  Food wine = new Food("Wine", "Old looking bottle of wine", 2,-50);
+  Food wine = new Food("Wine", "Old looking bottle of wine", 2,-100);
 
 
   public Map() {
@@ -79,10 +79,20 @@ public class Map {
     room4.setItems(picture);
     room4.setItems(carpet);
     room7.setItems(sock);
-    room8.setItems(wine);
     room8.setItems(fork);
-    room8.setItems(turkey);
     room3.setItems(parrot);
+
+    //Adding food to rooms
+    room8.setItems(turkey);
+    room8.setItems(wine);
+    room9.setItems(apple);
+    room3.setItems(shot);
+    room2.setItems(water);
+    room7.setItems(scone);
+    room10.setItems(carrot);
+    room2.setItems(carrot);
+    room6.setItems(coffee);
+    room4.setItems(coffee);
   }
 
   public void connectRoom10() {

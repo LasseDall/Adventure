@@ -2,6 +2,7 @@ package com.company;
 
 public class Food extends Item{
   private int healthSize;
+  private String consequence;
 
   public Food(String name, String description, int size, int healthSize) {
     super(name, description, size);
@@ -18,8 +19,6 @@ public class Food extends Item{
 
   @Override
   public String toString() {
-    return "Food{" +
-        "healthSize=" + healthSize +
-        '}';
+    return getName() + " - " + getDescription();
   }
 }

@@ -45,6 +45,8 @@ public class UserInterface {
         "Help" + "\n" +
         "Take (followed by the item you wish to take)" + "\n" +
         "Drop (followed by the item you wish to drop)" + "\n" +
+        "Eat (followed by the item you wish to eat)" + "\n" +
+        "Health (You get to know your health status)" + "\n" +
         "Exit" + "\n" + "\n");
   }
 
@@ -79,5 +81,22 @@ public class UserInterface {
 
   public String vampireFleet() {
     return "As you drop the garlic the man panic and run as fast as he can through the door.\n";
+  }
+
+  //Print health status
+  public String printHealthStatus(){
+    return "Your health status is: \n";
+  }
+
+  public String printGoodShape(){
+    return "You are in good shape";
+  }
+
+  public String printBeCautious(){
+    return "Your health status is a bit low. Be cautious of what you eat";
+  }
+
+  public String printBeCareful(){
+    return "Your health status is low. Be careful of what you eat";
   }
 }
