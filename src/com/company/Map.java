@@ -46,14 +46,19 @@ public class Map {
   Item garlic = new Item("Garlic", "Very smelly dried garlic", 1);
 
   //Instantiating food items
-  Food apple = new Food("Apple","A big red shiny apple. Do you dare to eat it?",1,-10);
-  Food carrot = new Food("Carrot","A delicious orange carrot",1,100);
-  Food turkey = new Food("Turkey","A big juicy turkey",5,30);
-  Food coffee = new Food("Coffee", "A dark smelly cup of coffee",1,20);
-  Food water = new Food("Water","A bottle of water",1,10);
-  Food shot = new Food("Shot", "A small glas of brown whiskey",1,-10);
-  Food scone = new Food("Scone","A delicious scone with chocolate topping",1,-20);
-  Food wine = new Food("Wine", "Old looking bottle of wine", 2,-100);
+  Food apple = new Food("Apple","A big red shiny apple. Do you dare to eat it?",1,-10,"Ouch, apples are usually a good idea to eat,\n" +
+      " but not if they are rotten. Did you know that you should eat about 600 grams of fruits and vegetables. However, when fruits are too old, you shouldn't eat them!");
+  Food carrot = new Food("Carrot","A delicious orange carrot",2,100,"It's greeeaat! Tony the Tiger likes to each frosties. \n" +
+      "However, you just ate a carrot, which was pretty damn healthy. A normal sized carrot weighs about 66 grams. So if you eat 9 carrots a day, you would almost reach \n" +
+      "the recommended amount each day.");
+  Food turkey = new Food("Turkey","A big juicy turkey",5,30,"Velbekomme. That is the Danish word you say after you have eaten\n" +
+      "a lot of food. Did you know that Denmark produces 1.6 million turkeys each year. That is a lot of health points you would get, if you ate all of them, huh!");
+  Food coffee = new Food("Coffee", "A dark smelly cup of coffee",1,20, "Ooow, you get POOOOWER! Coffee contains caffeine, \n" +
+      "which energizes your nerve system. Did you know that a cup of coffee contains about 125 mg of caffeine.");
+  Food water = new Food("Water","A bottle of water",1,10,"");
+  Food shot = new Food("Shot", "A small glas of brown whiskey",1,-10,"");
+  Food scone = new Food("Scone","A delicious scone with chocolate topping",1,-20,"");
+  Food wine = new Food("Wine", "Old looking bottle of wine", 2,-100,"");
 
 
   public Map() {
