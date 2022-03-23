@@ -42,11 +42,18 @@ public class Map {
   Item carpet = new Item("Carpet", "Long red carpet", 4);
   Item picture = new Item("Picture", "Black and white portrait picture of a pale skinny man reminding you of dracula", 2);
   Item sock = new Item("Sock", "Smelly black sock", 1);
-  Item turkey = new Item("Turkey", "Big oven baked turkey with crispy skin", 5);
-  Item wine = new Item("Wine", "Old looking bottle of wine", 2);
   Item fork = new Item("Fork", "Silver fork", 1);
   Item garlic = new Item("Garlic", "Very smelly dried garlic", 1);
 
+  //Instantiating food items
+  Food apple = new Food("Apple","A big red shiny apple. Do you dare to eat it?",1,-10);
+  Food carrot = new Food("Carrot","A delicious orange carrot",1,100);
+  Food turkey = new Food("Turkey","A big juicy turkey",5,30);
+  Food coffee = new Food("Coffee", "A dark smelly cup of coffee",1,20);
+  Food water = new Food("Water","A bottle of water",1,10);
+  Food shot = new Food("Shot", "A small glas of brown whiskey",1,-10);
+  Food scone = new Food("Scone","A delicious scone with chocolate topping",1,-20);
+  Food wine = new Food("Wine", "Old looking bottle of wine", 2,-50);
 
 
   public Map() {
