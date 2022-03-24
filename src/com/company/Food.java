@@ -10,6 +10,10 @@ public class Food extends Item{
     this.consequence = consequence;
   }
 
+  public String getConsequence() {
+    return consequence;
+  }
+
   public int getHealthSize() {
     return healthSize;
   }

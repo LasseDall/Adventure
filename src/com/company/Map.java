@@ -100,6 +100,8 @@ public class Map {
     room2.setItems(carrot);
     room6.setItems(coffee);
     room4.setItems(coffee);
+    room1.setItems(apple);
+    room1.setItems(apple);
   }
 
   public void connectRoom10() {

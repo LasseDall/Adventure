@@ -88,6 +88,7 @@ public class GameEngine {
           Item item = player.findFood(secondWord);
           if (item instanceof Food){
             player.setHealth(player.getHealth() + ((Food) item).getHealthSize());
+            System.out.println(((Food) item).getConsequence());
             if (player.isGameOver()){
               programRunning = false;
             }
