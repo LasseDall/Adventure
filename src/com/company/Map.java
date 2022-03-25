@@ -97,7 +97,7 @@ public class Map {
     room8.setItems(fork);
     room3.setItems(parrot);
 
-    //Adding food to rooms
+    //Adding food items to rooms. Remember that food-objects instantiated from Food class can also use methods from Item class such as the setItems() method
     room8.setItems(turkey);
     room8.setItems(wine);
     room9.setItems(apple);
@@ -111,7 +111,7 @@ public class Map {
     room1.setItems(apple);
     room1.setItems(apple);
 
-    //Adding
+    //Adding weapon items to rooms
     room1.setItems(pistol);
     room2.setItems(AK47);
     room3.setItems(sword);
