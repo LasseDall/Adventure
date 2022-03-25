@@ -42,11 +42,11 @@ public class Player {
     Item item = findItem(currentRoom.getItems(), itemName);
     if (item != null) {
       itemFound = true;
-      if (carriedItems + item.getSize() <= 10) {
+      if (carriedItems + item.getWeight() <= 10) {
         inventory.add(item);
         item.setItemSeen(true);
         currentRoom.removeItem(item);
-        setCarriedItems(carriedItems + item.getSize());
+        setCarriedItems(carriedItems + item.getWeight());
       } else {
         System.out.println("You carrie too much weight to pick that up.");
       }
@@ -61,7 +61,7 @@ public class Player {
       item.setItemSeen(true);
       inventory.remove(item);
       itemFound = true;
-      setCarriedItems(carriedItems - item.getSize());
+      setCarriedItems(carriedItems - item.getWeight());
     }
   }
 

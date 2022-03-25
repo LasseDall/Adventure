@@ -60,7 +60,9 @@ public class Map {
   Food scone = new Food("Scone","A delicious scone with chocolate topping",2,-20, "The scone taste very good, but your stomach begins to rumble.\nDid you know that at least 2.8 million people die every year as a result of being overweight.");
   Food wine = new Food("Wine", "Old looking bottle of wine", 3,-100, "You should have known better than to drink a bottle of wine!\nDid you know that an average adult in Denmark drink 9 units of alcohol every week?");
 
-
+  //Instantiating melee weapons
+  MeleeWeapon sword = new MeleeWeapon("Sword","A long silver bladed sword",4,10,8);
+  MeleeWeapon axe = new MeleeWeapon("Axe","A sharp bladed axe",5,20,3);
 
 
   public Map() {
