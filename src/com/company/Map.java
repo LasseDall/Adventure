@@ -61,8 +61,14 @@ public class Map {
   Food wine = new Food("Wine", "Old looking bottle of wine", 3,-100, "You should have known better than to drink a bottle of wine!\nDid you know that an average adult in Denmark drink 9 units of alcohol every week?");
 
   //Instantiating melee weapons
-  MeleeWeapon sword = new MeleeWeapon("Sword","A long silver bladed sword",4,10,8);
+  MeleeWeapon sword = new MeleeWeapon("Sword","A long silver bladed sword",4,10,5);
   MeleeWeapon axe = new MeleeWeapon("Axe","A sharp bladed axe",5,20,3);
+
+  //Instantiating range weapons
+  RangeWeapon pistol = new RangeWeapon("Pistol","A glock gun", 3,30,8,10);
+  RangeWeapon AK47 = new RangeWeapon("AK47","An AK47 machine gun",6,50,9,50);
+  RangeWeapon bazooka = new RangeWeapon("Bazooka", "A large and heavy bazooka",10,100,7,1);
+  RangeWeapon molotovCocktail = new RangeWeapon("Molotov cocktail","A bottle of gasoline",2,20,3,1);
 
 
   public Map() {
