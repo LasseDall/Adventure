@@ -152,8 +152,9 @@ public class Player {
 
   public void attack(){
     if (equippedWeapon == null){
-      // TODO: 25/03/2022 Barenæver-fight
+      // TODO: 25/03/2022 Implement "bare næver-fight" code here
     } else {
+      // TODO: 25/03/2022 Implement code of attack-fight, where weapon is equipped here 
     }
   }
   }
