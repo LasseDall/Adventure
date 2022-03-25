@@ -139,6 +139,9 @@ public class Player {
     if (tmp == null) {
       tmp = findItem(currentRoom.getItems(), foodName);
     }
+    if (tmp instanceof Food) {
+      inventory.remove(tmp);
+    }
     return tmp;
     }
   }
