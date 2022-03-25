@@ -15,6 +15,8 @@ public class Player {
   private Room currentRoom;
   private ArrayList<Item> inventory = new ArrayList<>();
 
+  private Weapon equippedWeapon = null;
+
   private int health;
 
   public Player() {
@@ -62,11 +64,10 @@ public class Player {
       inventory.remove(item);
       itemFound = true;
       setCarriedItems(carriedItems - item.getWeight());
+      if (item == equippedWeapon){
+        equippedWeapon = null;
+      }
     }
-  }
-
-  public void addInventory(Item item) {
-    inventory.add(item);
   }
 
   public ArrayList<Item> getInventory() {
@@ -144,4 +145,15 @@ public class Player {
     }
     return tmp;
     }
+
+  public void equip(Weapon weapon){
+    this.equippedWeapon = weapon;
+  }
+
+  public void attack(){
+    if (equippedWeapon == null){
+      // TODO: 25/03/2022 Barenæver-fight
+    } else {
+    }
+  }
   }

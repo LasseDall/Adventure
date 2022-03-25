@@ -99,4 +99,9 @@ public class UserInterface {
   public String printBeCareful(){
     return "Your health status is low. Be careful of what you eat";
   }
+
+  //Print equipped weapon
+  public String printEquippedWeapon(){
+    return "You picked up a ";
+  }
 }

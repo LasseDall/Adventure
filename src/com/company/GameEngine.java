@@ -93,11 +93,27 @@ public class GameEngine {
               programRunning = false;
             }
           } else if (item == null){
-            System.out.println("No item was found \n");
+            System.out.println("No item was found \n"); //
           } else {
             System.out.println("You cannot eat " + item);
           }
         }
+        case "equip" -> {
+          Item item = player.findItem(player.getInventory(),secondWord);
+          if (item instanceof Weapon){
+            player.equip((Weapon) item);
+            System.out.println(userInterface.printEquippedWeapon() + item.getName());
+          } else if (item == null){//This covers also instances where user makes typing error such as pisol instead of pistol.
+            System.out.println("No item was found \n");
+          } else {
+            System.out.println("You cannot equip that " + secondWord);
+          }
+        }
+        case "attack" -> {
+
+        }
+
+
           default -> System.out.println("Your command did not match any legal commands. Type 'help' for instructions. \n");
       }
       if (!player.map.room5.getDoorLocked() && player.map.room5.getCreatureLeft()) {

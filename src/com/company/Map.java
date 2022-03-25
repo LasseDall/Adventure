@@ -65,11 +65,11 @@ public class Map {
   MeleeWeapon axe = new MeleeWeapon("Axe","A sharp bladed axe",5,20,3);
 
   //Instantiating range weapons
-  RangeWeapon pistol = new RangeWeapon("Pistol","A glock gun", 3,30,8,10);
-  RangeWeapon AK47 = new RangeWeapon("AK47","An AK47 machine gun",6,50,9,50);
-  RangeWeapon bazooka = new RangeWeapon("Bazooka", "A large and heavy bazooka",10,100,7,1);
+  RangeWeapon pistol = new RangeWeapon("Pistol","A glock gun", 3,30,5,10);
+  RangeWeapon AK47 = new RangeWeapon("AK47","An AK47 machine gun",6,50,7,50);
+  RangeWeapon bazooka = new RangeWeapon("Bazooka", "A large and heavy bazooka",10,100,4,1);
   RangeWeapon molotovCocktail = new RangeWeapon("Molotov cocktail","A bottle of gasoline",2,20,3,1);
-
+  RangeWeapon sniper = new RangeWeapon("Sniper","A 9mm sniper riffle with laser aim", 4,30,10,8);
 
   public Map() {
     //Adding directions to rooms
@@ -110,6 +110,15 @@ public class Map {
     room4.setItems(coffee);
     room1.setItems(apple);
     room1.setItems(apple);
+
+    //Adding
+    room1.setItems(pistol);
+    room2.setItems(AK47);
+    room3.setItems(sword);
+    room4.setItems(axe);
+    room6.setItems(bazooka);
+    room7.setItems(molotovCocktail);
+    room8.setItems(sniper);
   }
 
   public void connectRoom10() {
