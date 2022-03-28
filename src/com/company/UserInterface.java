@@ -104,4 +104,9 @@ public class UserInterface {
   public String printEquippedWeapon(){
     return "You picked up a ";
   }
+
+  //Print no more ammo
+  public String printNoMoreAmmunition(){
+    return "You have no more ammunition";
+  }
 }

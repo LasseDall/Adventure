@@ -64,7 +64,7 @@ public class Player {
       inventory.remove(item);
       itemFound = true;
       setCarriedItems(carriedItems - item.getWeight());
-      if (item == equippedWeapon){
+      if (item == equippedWeapon) {
         equippedWeapon = null;
       }
     }
@@ -100,9 +100,9 @@ public class Player {
 
   public void setHealth(int health) {
     this.health = health;
-    if (health > 100){
+    if (health > 100) {
       this.health = 100;
-    } else if (health <= 0){
+    } else if (health <= 0) {
       gameOver = true;
     }
   }
@@ -144,29 +144,29 @@ public class Player {
       inventory.remove(tmp);
     }
     return tmp;
-    }
+  }
 
-  public void equip(Weapon weapon){
+  public void equip(Weapon weapon) {
     this.equippedWeapon = weapon;
   }
 
-  public void attack(){
-    if (equippedWeapon == null){
-
-      // TODO: 25/03/2022 Implement "bare næver-fight" code here
+  public int attack() {
+    int attackDamage;
+    if (equippedWeapon == null) {
+      attackDamage = (int) (Math.random() * 20 + 1);//If player fights with bare fists, player can give damage between 1 and 20.
+    } else if (equippedWeapon.canUse()) {
+      attackDamage = attackRandomDamage();
     } else {
-      if (equippedWeapon.getAmmunitionAmount() < 1){
-        // TODO: 28/03/2022 Implement not possible to attack
-      } else {
-        // TODO: 28/03/2022 implement possible to attack
-      }
+      equippedWeapon.setAmmunitionAmount(1);
+      attackDamage = 0;
     }
-  }
-
-  public int attackDamage(){
-    int damage = equippedWeapon.getDamage();
-    int precision = equippedWeapon.getPrecision();
-    int attackDamage = (damage)/((int) Math.random()*precision);
     return attackDamage;
   }
+
+  public int attackRandomDamage() {
+    int damage = equippedWeapon.getDamage();
+    int precision = equippedWeapon.getPrecision();
+    int attackDamage = (damage) / ((int) Math.random() * precision);
+    return attackDamage;
   }
+}
