@@ -47,7 +47,7 @@ public class Weapon extends Item{
     this.ammunitionAmount = ammunitionAmount;
   }
 
-  public boolean canUse(){
+  public boolean canUse(int ammunitionAmount){
     return true;
   }
 }

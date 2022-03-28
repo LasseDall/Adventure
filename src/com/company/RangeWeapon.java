@@ -6,8 +6,8 @@ public class RangeWeapon extends Weapon {
     super(name, description, weight, damage, precision, ammunitionAmount);
   }
 
-  public boolean canUse() {
-    if (getAmmunitionAmount() < 1) {
+  public boolean canUse(int ammunitionAmount) {
+    if (ammunitionAmount < 1) {
       return false;
     } else {
       return true;

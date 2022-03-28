@@ -2,20 +2,21 @@ package com.company;
 
 
 public class UserInterface {
-  public void welcome(){
+  public void welcome() {
     System.out.println("Welcome to the Adventure-game");
     System.out.println(" ");
     preStory();
   }
+
   //Making pre-story method
-  public void preStory(){
+  public void preStory() {
     System.out.println("You are on a holiday in the state of Georgia. You are driving on the country-side in the " +
         "\ndark night. Suddenly, you hear the engine starts to make sounds. You have no more throttle and " +
         "\nyour speed decreases. Your car stops at the side of the road and the your lights shut down. " +
         "\nThere is total darkness. There is a gravel road to your right side. At the end of the road, " +
         "\nthere is an old abandoned house, with a light pole blinking at the front door. You walk down the road and " +
         "\nsee the house, which has no light from the window inside it. The house looks decayed and the outer walls" +
-        "\nare demolished. You walk to the frontdoor and knocks three times."+
+        "\nare demolished. You walk to the frontdoor and knocks three times." +
         "\nThe door squeaks and opens a bit, as you knock. You can hear a gramophone, which is stuck in a " +
         "\ngroove playing the song which, your mum sang to you, when you had to fall asleep, when you were a " +
         "\nkid. You enter the house, it is totally dark and suddenly you hear a loud BAAANG. The door shuts " +
@@ -27,13 +28,13 @@ public class UserInterface {
         "\nleading up to the upper floor. " +
         "\nYou can choose to go in any direction 'Go north', 'go east', 'go south', 'go west'." +
         "\nYou can ask for help by typing 'help'." +
-        "\nYou can get a description of which room you are in by typing 'look'"+
+        "\nYou can get a description of which room you are in by typing 'look'" +
         "\nIf you get too scared, you can type 'exit' to exit the game" +
         "\n ");
   }
 
   //Making helpInstructions method
-  public void helpInstructions(){
+  public void helpInstructions() {
     System.out.printf("You can choose to:" + "\n" +
         "Go north" + "\n" +
         "Go east" + "\n" +
@@ -56,12 +57,12 @@ public class UserInterface {
   }
 
   //Print items text
-  public void itemPrintoutFromRoom(){
+  public void itemPrintoutFromRoom() {
     System.out.println("In the room you find the following items:");
   }
 
   //Print make choice
-  public void printChoice(){
+  public void printChoice() {
     System.out.println("Make your choice");
   }
 
@@ -84,29 +85,36 @@ public class UserInterface {
   }
 
   //Print health status
-  public String printHealthStatus(){
+  public String printHealthStatus() {
     return "Your health status is: \n";
   }
 
-  public String printGoodShape(){
+  public String printGoodShape() {
     return "You are in good shape";
   }
 
-  public String printBeCautious(){
+  public String printBeCautious() {
     return "Your health status is a bit low. Be cautious of what you eat";
   }
 
-  public String printBeCareful(){
+  public String printBeCareful() {
     return "Your health status is low. Be careful of what you eat";
   }
 
   //Print equipped weapon
-  public String printEquippedWeapon(){
+  public String printEquippedWeapon() {
     return "You picked up a ";
   }
 
-  //Print no more ammo
-  public String printNoMoreAmmunition(){
-    return "You have no more ammunition";
+  //Print attack text
+  public String printAttack(int damage) {
+    String textpiece = " ";
+    if (damage == 0) {
+      textpiece = "You do not have any more ammunition. You did not cause any damage.\n" +
+          "You have successfully reloaded your weapon and added 1 piece of ammunition";
+    } else {
+      textpiece = "You hit! You caused " + damage + " damage";
+    }
+    return textpiece;
   }
 }

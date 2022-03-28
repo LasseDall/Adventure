@@ -61,7 +61,6 @@ public class GameEngine {
           }
         }
         case "inventory" -> {
-
           System.out.println(player.getInventory());
           System.out.println(" ");
         }
@@ -110,7 +109,8 @@ public class GameEngine {
           }
         }
         case "attack" -> {
-
+          int damage = player.attack();
+          System.out.println(userInterface.printAttack(damage));
         }
           default -> System.out.println("Your command did not match any legal commands. Type 'help' for instructions. \n");
       }

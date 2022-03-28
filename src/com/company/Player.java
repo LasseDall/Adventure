@@ -153,9 +153,11 @@ public class Player {
   public int attack() {
     int attackDamage;
     if (equippedWeapon == null) {
-      attackDamage = (int) (Math.random() * 20 + 1);//If player fights with bare fists, player can give damage between 1 and 20.
-    } else if (equippedWeapon.canUse()) {
+      //If player fights with bare fists, player can give damage between 1 and 20.
+      attackDamage = (int) (Math.random() * 5 + 1);
+    } else if (equippedWeapon.canUse(equippedWeapon.getAmmunitionAmount())) {
       attackDamage = attackRandomDamage();
+      equippedWeapon.decreaseAmmunitionAmount();
     } else {
       equippedWeapon.setAmmunitionAmount(1);
       attackDamage = 0;
@@ -166,7 +168,7 @@ public class Player {
   public int attackRandomDamage() {
     int damage = equippedWeapon.getDamage();
     int precision = equippedWeapon.getPrecision();
-    int attackDamage = (damage) / ((int) Math.random() * precision);
+    int attackDamage = (damage/((int) (Math.random()*precision) + 1));
     return attackDamage;
   }
 }
