@@ -81,12 +81,13 @@ public class UserInterface {
   }
 
   public String vampireFleet() {
-    return "As you drop the garlic the man panic and run as fast as he can through the door.\n";
+    return "As you drop the garlic the man panic and run as fast as he can through the door.\n" +
+        "Take a closer 'look' at the room. \n";
   }
 
   //Print health status
-  public String printHealthStatus() {
-    return "Your health status is: \n";
+  public String healthStatus(int health) {
+    return "Your health status is: " + health + '\n';
   }
 
   public String printGoodShape() {
@@ -116,5 +117,21 @@ public class UserInterface {
       textpiece = "You hit! You caused " + damage + " damage";
     }
     return textpiece;
+  }
+
+  public String defaultDirection() {
+    return "You cannot go in that direction \n";
+  }
+
+  public String pickUp(String secondWord) {
+    return "You picked up a " + secondWord + '\n';
+  }
+
+  public String defaultItem() {
+    return "No item was found \n";
+  }
+
+  public String drop(String secondWord) {
+    return "You dropped a " + secondWord + '\n';
   }
 }

@@ -38,8 +38,7 @@ public class GameEngine {
             System.out.println(player.getCurrentRoom());
             player.setHealth(player.getHealth()-3);
           } else {
-            System.out.println("You cannot go in that direction");
-            System.out.println(" ");
+            System.out.println(userInterface.defaultDirection());
             player.setHealth(player.getHealth()-1);
           }
           player.setRequestedRoom(null);
@@ -47,36 +46,29 @@ public class GameEngine {
         case "take" -> {
           player.takeItem(secondWord);
           if (player.getItemFound()) {
-            System.out.println("You picked up a " + secondWord);
-            System.out.println(" ");
+            System.out.println(userInterface.pickUp(secondWord));
             player.setHealth(player.getHealth() - 1);
             } else {
-            System.out.println("No item was found");
-            System.out.println(" ");
+            System.out.println(userInterface.defaultItem());
           }
         }
         case "inventory" -> {
-          System.out.println(player.getInventory());
-          System.out.println(" ");
+          System.out.println(player.getInventory() + "\n");
         }
         case "drop" -> {
           player.dropItem(secondWord);
           if (player.getItemFound()) {
-            System.out.println("You dropped a " + secondWord);
-            System.out.println(" ");
+            System.out.println(userInterface.drop(secondWord));
             if ((secondWord.equals("garlic")) && (!player.map.room5.getCreatureLeft()) && player.getCurrentRoom().equals(player.map.room5)) {
                 System.out.println(userInterface.vampireFleet());
-                System.out.println("Take af closer 'look' at the room!");
-              System.out.println(" ");
                 player.map.room5.setCreatureLeft(true);
             }
           } else {
-            System.out.println("No item was found");
-            System.out.println(" ");
+            System.out.println(userInterface.defaultItem());
           }
         }
         case "health" -> {
-          System.out.println(userInterface.printHealthStatus() + player.getHealth() + ": " + healthStatus(player.getHealth()) + "\n");
+          System.out.println(healthStatus(player.getHealth()));
         }
         case "eat", "drink" -> {
           Item item = player.findFood(secondWord);
@@ -156,6 +148,6 @@ public class GameEngine {
     } else{
       healthStatus = userInterface.printBeCareful();
     }
-    return healthStatus;
+    return userInterface.healthStatus(player.getHealth()) + ": " + healthStatus + '\n';
   }
 }
