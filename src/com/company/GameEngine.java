@@ -36,11 +36,6 @@ public class GameEngine {
           if (player.getRequestedRoom() != null) {
             player.setCurrentRoom(player.getRequestedRoom());
             System.out.println(player.getCurrentRoom());
-            if (player.getCurrentRoom().getItems().size() != 0) {
-              userInterface.itemPrintoutFromRoom();
-              System.out.println(player.getCurrentRoom().getItems());
-              System.out.println(" ");
-            }
             player.setHealth(player.getHealth()-3);
           } else {
             System.out.println("You cannot go in that direction");

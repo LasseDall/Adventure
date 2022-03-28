@@ -138,7 +138,13 @@ public class Room {
 
   //Making a toString
    public String toString(){
-    return name + '\n' + description;
+     String items;
+    if (this.items.size() != 0) {
+      items = String.valueOf(this.items);
+    } else {
+      items = " ";
+    }
+    return name + '\n' + description + '\n' + items;
    }
 
 
