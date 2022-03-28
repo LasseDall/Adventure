@@ -112,8 +112,6 @@ public class GameEngine {
         case "attack" -> {
 
         }
-
-
           default -> System.out.println("Your command did not match any legal commands. Type 'help' for instructions. \n");
       }
       if (!player.map.room5.getDoorLocked() && player.map.room5.getCreatureLeft()) {

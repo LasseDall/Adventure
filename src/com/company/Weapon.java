@@ -3,12 +3,24 @@ package com.company;
 //Making Weapon class abstract, because weapon is an abstraction that is not a specific/concrete class such as the sub classes to weapon.
 public abstract class Weapon extends Item{
   private int damage; //1-100
-  private int hitChance;//1-10
+  private int precision;//1-10 - low value equals higher precision
+  private int ammunitionAmount;
 
-  public Weapon(String name, String description, int weight, int damage, int hitChance) {
+  public Weapon(String name, String description, int weight, int damage, int precision) {
     super(name, description, weight);
     this.damage = damage;
-    this.hitChance = hitChance;
+    this.precision = precision;
+  }
+
+  public Weapon(String name, String description, int weight, int damage, int precision, int ammunitionAmount) {
+    super(name, description, weight);
+    this.damage = damage;
+    this.precision = precision;
+    this.ammunitionAmount = ammunitionAmount;
+  }
+
+  public void decreaseAmmunitionAmount(){
+    this.ammunitionAmount--;
   }
 
   public int getDamage() {
@@ -19,11 +31,23 @@ public abstract class Weapon extends Item{
     this.damage = damage;
   }
 
-  public int getHitChance() {
-    return hitChance;
+  public int getPrecision() {
+    return precision;
   }
 
-  public void setHitChance(int hitChance) {
-    this.hitChance = hitChance;
+  public void setPrecision(int precision) {
+    this.precision = precision;
+  }
+
+  public int getAmmunitionAmount() {
+    return ammunitionAmount;
+  }
+
+  public void setAmmunitionAmount(int ammunitionAmount) {
+    this.ammunitionAmount = ammunitionAmount;
+  }
+
+  public boolean canUse(){
+    return true;
   }
 }

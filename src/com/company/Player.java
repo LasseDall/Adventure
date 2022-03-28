@@ -152,9 +152,21 @@ public class Player {
 
   public void attack(){
     if (equippedWeapon == null){
+
       // TODO: 25/03/2022 Implement "bare næver-fight" code here
     } else {
-      // TODO: 25/03/2022 Implement code of attack-fight, where weapon is equipped here 
+      if (equippedWeapon.getAmmunitionAmount() < 1){
+        // TODO: 28/03/2022 Implement not possible to attack
+      } else {
+        // TODO: 28/03/2022 implement possible to attack
+      }
     }
+  }
+
+  public int attackDamage(){
+    int damage = equippedWeapon.getDamage();
+    int precision = equippedWeapon.getPrecision();
+    int attackDamage = (damage)/((int) Math.random()*precision);
+    return attackDamage;
   }
   }

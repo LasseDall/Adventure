@@ -65,11 +65,11 @@ public class Map {
   MeleeWeapon axe = new MeleeWeapon("Axe","A sharp bladed axe",5,20,3);
 
   //Instantiating range weapons
-  RangeWeapon pistol = new RangeWeapon("Pistol","A glock gun", 3,30,5,10);
-  RangeWeapon AK47 = new RangeWeapon("AK47","An AK47 machine gun",6,50,7,50);
-  RangeWeapon bazooka = new RangeWeapon("Bazooka", "A large and heavy bazooka",10,100,4,1);
-  RangeWeapon molotovCocktail = new RangeWeapon("Molotov cocktail","A bottle of gasoline",2,20,3,1);
-  RangeWeapon sniper = new RangeWeapon("Sniper","A 9mm sniper riffle with laser aim", 4,30,10,8);
+  RangeWeapon pistol = new RangeWeapon("Pistol","A glock gun", 3,30,4,10);
+  RangeWeapon AK47 = new RangeWeapon("AK47","An AK47 machine gun",6,50,3,50);
+  RangeWeapon bazooka = new RangeWeapon("Bazooka", "A large and heavy bazooka",10,100,10,1);
+  RangeWeapon molotovCocktail = new RangeWeapon("Molotov cocktail","A bottle of gasoline",2,20,8,1);
+  RangeWeapon sniper = new RangeWeapon("Sniper","A 9mm sniper riffle with laser aim", 4,30,1,5);
 
   public Map() {
     //Adding directions to rooms
