@@ -12,7 +12,7 @@ public class Room {
   private Room west;
   private Room up;
   private Room down;
-  private ArrayList<Item> items = new ArrayList<>();
+  private ArrayList<Item> items = new ArrayList<>();//Contains the items in the room object
   private boolean doorLocked;
   private boolean creatureLeft;
 
@@ -136,7 +136,7 @@ public class Room {
     return up;
   }
 
-  //Making a toString
+  //Making a toString - remember that Java uses the toString method, if we sout a room object without specifying what to sout, Java will automatically print what is in the toString method.
    public String toString(){
      String items;
     if (this.items.size() != 0) {
