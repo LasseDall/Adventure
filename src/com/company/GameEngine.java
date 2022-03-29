@@ -11,7 +11,7 @@ public class GameEngine {
   UserInterface userInterface = new UserInterface();
   Player player = new Player();
 
-  //Laver mainMenu method
+  //mainMenu method
   public void mainMenu() {
     boolean programRunning = true;
     userInterface.welcome();
