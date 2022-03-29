@@ -11,7 +11,7 @@ public class GameEngine {
   UserInterface userInterface = new UserInterface();
   Player player = new Player();
 
-  //Laver mainMenu method
+  //mainMenu method
   public void mainMenu() {
     boolean programRunning = true;
     userInterface.welcome();
@@ -68,7 +68,7 @@ public class GameEngine {
           }
         }
         case "health" -> {
-          System.out.println(healthStatus(player.getHealth()));
+          System.out.println(userInterface.healthStatus(player.getHealth()));
         }
         case "eat", "drink" -> {
           Item item = player.findFood(secondWord);
@@ -79,9 +79,9 @@ public class GameEngine {
               programRunning = false;
             }
           } else if (item == null){
-            System.out.println("No item was found \n"); //
+            System.out.println(userInterface.defaultItem());
           } else {
-            System.out.println("You cannot eat " + item);
+            System.out.println(userInterface.notFood(secondWord));
           }
         }
         case "equip" -> {
@@ -90,25 +90,18 @@ public class GameEngine {
             player.equip((Weapon) item);
             System.out.println(userInterface.printEquippedWeapon() + item.getName());
           } else if (item == null){//This covers also instances where user makes typing error such as pisol instead of pistol.
-            System.out.println("No item was found \n");
+            System.out.println(userInterface.defaultItem());
           } else {
-            System.out.println("You cannot equip that " + secondWord);
+            System.out.println(userInterface.notWeapon(secondWord));
           }
         }
         case "attack" -> {
           int damage = player.attack();
           System.out.println(userInterface.printAttack(damage));
         }
-          default -> System.out.println("Your command did not match any legal commands. Type 'help' for instructions. \n");
+          default -> System.out.println(userInterface.defaultCommand());
       }
-      if (!player.map.room5.getDoorLocked() && player.map.room5.getCreatureLeft()) {
-        player.map.connectRoom10();
-        player.map.room5.setDescription(userInterface.room5OpenGateDescription());
-      } else if (player.map.room5.getCreatureLeft() && player.map.room5.getDoorLocked()) {
-        player.map.room5.setDescription(userInterface.room5LockedGateDescription());
-      } else if (player.map.picture.getItemSeen()) {
-        player.map.room5.setDescription(userInterface.room5DraculaDescription());
-      }
+      checkRoom5();
     }
   }
 
@@ -138,16 +131,27 @@ public class GameEngine {
     }
   }
 
-  //Method to calculate health status
-  public String healthStatus(int health){
-    String healthStatus;
-    if (health > 50){
-      healthStatus = userInterface.printGoodShape();
-    } else if (health < 50 && health > 25){
-      healthStatus = userInterface.printBeCautious();
-    } else{
-      healthStatus = userInterface.printBeCareful();
+  public void checkRoom5() {
+    if (!player.map.room5.getDoorLocked() && player.map.room5.getCreatureLeft()) {
+      player.map.connectRoom10();
+      player.map.room5.setDescription(userInterface.room5OpenGateDescription());
+    } else if (player.map.room5.getCreatureLeft() && player.map.room5.getDoorLocked()) {
+      player.map.room5.setDescription(userInterface.room5LockedGateDescription());
+    } else if (player.map.picture.getItemSeen()) {
+      player.map.room5.setDescription(userInterface.room5DraculaDescription());
     }
-    return userInterface.healthStatus(player.getHealth()) + ": " + healthStatus + '\n';
   }
-}
+
+    //Method to calculate health status
+    public String healthStatus ( int health){
+      String currentHealt;
+      if (health > 50) {
+        currentHealt = userInterface.printGoodShape();
+      } else if (health < 50 && health > 25) {
+        currentHealt = userInterface.printBeCautious();
+      } else {
+        currentHealt = userInterface.printBeCareful();
+      }
+      return userInterface.healthStatus(player.getHealth()) + ": " + currentHealt + '\n';
+    }
+  }

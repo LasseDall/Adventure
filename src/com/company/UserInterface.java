@@ -138,4 +138,16 @@ public class UserInterface {
   public String drop(String secondWord) {
     return "You dropped a " + secondWord + '\n';
   }
+
+  public String notFood(String itemName) {
+    return "You cannot eat " + itemName + '\n';
+  }
+
+  public String notWeapon(String itemName) {
+    return "You cannot equip " + itemName + '\n';
+  }
+
+  public String defaultCommand() {
+    return "Your command did not match any legal commands. Type 'help' for instructions. \n";
+  }
 }
