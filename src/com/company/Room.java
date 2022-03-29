@@ -15,6 +15,7 @@ public class Room {
   private ArrayList<Item> items = new ArrayList<>();//Contains the items in the room object
   private boolean doorLocked;
   private boolean creatureLeft;
+  private Enemy enemy;
 
   //Creating constructor method
   public Room(String name, String description){
@@ -29,6 +30,7 @@ public class Room {
     ArrayList<Item> items = null;
     doorLocked = true;
     creatureLeft = false;
+    enemy = null;
   }
 
   //Making set methods
@@ -136,6 +138,15 @@ public class Room {
     return up;
   }
 
+  //Making set and get methods for enemy object
+  public Enemy getEnemy() {
+    return enemy;
+  }
+
+  public void setEnemy(Enemy enemy) {
+    this.enemy = enemy;
+  }
+
   //Making a toString - remember that Java uses the toString method, if we sout a room object without specifying what to sout, Java will automatically print what is in the toString method.
    public String toString(){
      String items;
@@ -144,7 +155,8 @@ public class Room {
     } else {
       items = " ";
     }
-    return name + '\n' + description + '\n' + items;
+
+    return name + '\n' + description + '\n' + items + '\n' + enemy;
    }
 
 

@@ -71,6 +71,11 @@ public class Map {
   RangeWeapon molotovCocktail = new RangeWeapon("Molotov cocktail","A bottle of gasoline",2,20,8,1);
   RangeWeapon sniper = new RangeWeapon("Sniper","A 9mm sniper riffle with laser aim", 4,30,1,5);
 
+  //Instantiating enemies
+  Enemy giraffePhant = new Enemy(150,"Giraffephant","A big elephant-look-a-like animal with a tall neck of a giraffe", bazooka);
+  Enemy ghost = new Enemy(50, "Ghost","A dark-shaded ghost that says woooohhooo", pistol);
+  Enemy vampire = new Enemy(60,"Vampire","A white-headed vampire with sharp teeth",sword);
+
   public Map() {
     //Adding directions to rooms
     room1.setEast(room2);
@@ -119,6 +124,11 @@ public class Map {
     room6.setItems(bazooka);
     room7.setItems(molotovCocktail);
     room8.setItems(sniper);
+
+    //Adding enemies to rooms
+    room3.setEnemy(giraffePhant);
+    room7.setEnemy(vampire);
+    room9.setEnemy(ghost);
   }
 
   public void connectRoom10() {
