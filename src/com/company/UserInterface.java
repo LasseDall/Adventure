@@ -25,30 +25,34 @@ public class UserInterface {
         "\nwalls are extremely elegant with beautiful wallpaper with red and gold stripes. On the wall to your" +
         "\nright there is a mirror. You cannot see yourself in the mirror! You look down, there is compass " +
         "\ndrawn on the floor at your feet. To your east there is a door and to the south there is a staircase" +
-        "\nleading up to the upper floor. " +
+        "\nleading up to the upper floor. " + "\n" +
         "\nYou can choose to go in any direction 'Go north', 'go east', 'go south', 'go west'." +
         "\nYou can ask for help by typing 'help'." +
         "\nYou can get a description of which room you are in by typing 'look'" +
         "\nIf you get too scared, you can type 'exit' to exit the game" +
-        "\n ");
+        "\n");
   }
 
   //Making helpInstructions method
   public void helpInstructions() {
+    System.out.println("---------------------------------------------------------");
     System.out.printf("You can choose to:" + "\n" +
-        "Go north" + "\n" +
-        "Go east" + "\n" +
-        "Go south" + "\n" +
-        "Go west" + "\n" +
+        "Go north:" + "\t \t \t" + "You move to a room north of you\n" +
+        "Go east:" + "\t \t \t" + "You move to a room east of you\n" +
+        "Go south:" + "\t \t \t" + "You move to a room south of you\n" +
+        "Go west:" + "\t \t \t" + "You move to a room west of you\n" +
         "Go up" + "\n" +
         "Go down" + "\n" +
-        "Look (You get to know what room you are in)" + "\n" +
-        "Help" + "\n" +
-        "Take (followed by the item you wish to take)" + "\n" +
-        "Drop (followed by the item you wish to drop)" + "\n" +
-        "Eat (followed by the item you wish to eat)" + "\n" +
-        "Health (You get to know your health status)" + "\n" +
-        "Exit" + "\n" + "\n");
+        "Look:" + "\t \t \t" + "You get to know what room you are in" + "\n" +
+        "Help:" + "\t \t \t" + "Get an overview of all commands\n" +
+        "Take ITEM:" + "\t \t \t" + "Take followed by the item you wish to take" + "\n" +
+        "Drop ITEM:" + "\t \t \t" + "Followed by the item you wish to drop)" + "\n" +
+        "Eat ITEM: " + "\t \t \t" + "Followed by the item you wish to eat)" + "\n" +
+        "Health: " + "\t \t \t" + "You get to know your health status" + "\n" +
+        "Attack: " + "\t \t \t" + "You attack with the weapon you have. But remember to first equip your weapon" + "\n" +
+        "Equip: " + "\t \t \t" + "You equip a weapon if you have one in your inventory" + "\n" +
+        "Exit\n");
+    System.out.println("---------------------------------------------------------");
   }
 
   //Making exit printout

@@ -7,6 +7,8 @@ public class Player {
 
   Map map = new Map();
 
+  private final int INVENTORYSIZE = 20;
+
   private boolean itemFound;
   private boolean gameOver = false;
   private int carriedItems;
@@ -44,7 +46,7 @@ public class Player {
     Item item = findItem(currentRoom.getItems(), itemName);
     if (item != null) {
       itemFound = true;
-      if (carriedItems + item.getWeight() <= 10) {
+      if (carriedItems + item.getWeight() <= INVENTORYSIZE) {
         inventory.add(item);
         item.setItemSeen(true);
         currentRoom.removeItem(item);
