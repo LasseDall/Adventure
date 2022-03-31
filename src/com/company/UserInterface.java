@@ -150,4 +150,16 @@ public class UserInterface {
   public String defaultCommand() {
     return "Your command did not match any legal commands. Type 'help' for instructions. \n";
   }
+
+  public String printNoEnemyPresent() {
+    return "There is no enemy in the room";
+  }
+
+  public String printUserFistFight() {
+    return "You fight with your bare fists, since you have no weapon equipped";
+  }
+
+  public String gameOver(){
+    return "Game over! You have no more life";
+  }
 }

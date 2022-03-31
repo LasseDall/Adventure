@@ -16,6 +16,7 @@ public class Room {
   private boolean doorLocked;
   private boolean creatureLeft;
   private Enemy enemy;
+  private boolean enemyPresent;
 
   //Creating constructor method
   public Room(String name, String description){
@@ -31,6 +32,7 @@ public class Room {
     doorLocked = true;
     creatureLeft = false;
     enemy = null;
+    enemyPresent = false;
   }
 
   //Making set methods
@@ -73,6 +75,14 @@ public class Room {
     down = room;
     if (room.getUp() != this) {
       room.setUp(this);
+    }
+  }
+
+  public boolean isEnemyPresent(){
+    if (enemyPresent){
+      return true;
+    } else{
+      return false;
     }
   }
 
@@ -145,6 +155,7 @@ public class Room {
 
   public void setEnemy(Enemy enemy) {
     this.enemy = enemy;
+    this.enemyPresent = true;
   }
 
   //Making a toString - remember that Java uses the toString method, if we sout a room object without specifying what to sout, Java will automatically print what is in the toString method.
@@ -155,7 +166,6 @@ public class Room {
     } else {
       items = " ";
     }
-
     return name + '\n' + description + '\n' + items + '\n' + enemy;
    }
 

@@ -36,10 +36,10 @@ public class GameEngine {
           if (player.getRequestedRoom() != null) {
             player.setCurrentRoom(player.getRequestedRoom());
             System.out.println(player.getCurrentRoom());
-            player.setHealth(player.getHealth()-3);
+            player.setHealth(player.getHealth() - 3);
           } else {
             System.out.println(userInterface.defaultDirection());
-            player.setHealth(player.getHealth()-1);
+            player.setHealth(player.getHealth() - 1);
           }
           player.setRequestedRoom(null);
         }
@@ -48,7 +48,7 @@ public class GameEngine {
           if (player.getItemFound()) {
             System.out.println(userInterface.pickUp(secondWord));
             player.setHealth(player.getHealth() - 1);
-            } else {
+          } else {
             System.out.println(userInterface.defaultItem());
           }
         }
@@ -60,8 +60,8 @@ public class GameEngine {
           if (player.getItemFound()) {
             System.out.println(userInterface.drop(secondWord));
             if ((secondWord.equals("garlic")) && (!player.map.room5.getCreatureLeft()) && player.getCurrentRoom().equals(player.map.room5)) {
-                System.out.println(userInterface.vampireFleet());
-                player.map.room5.setCreatureLeft(true);
+              System.out.println(userInterface.vampireFleet());
+              player.map.room5.setCreatureLeft(true);
             }
           } else {
             System.out.println(userInterface.defaultItem());
@@ -72,48 +72,69 @@ public class GameEngine {
         }
         case "eat", "drink" -> {
           Item item = player.findFood(secondWord);
-          if (item instanceof Food){
+          if (item instanceof Food) {
             player.setHealth(player.getHealth() + ((Food) item).getHealthSize());
             System.out.println(((Food) item).getConsequence());
-            if (player.isGameOver()){
+            if (player.isGameOver()) {
               programRunning = false;
             }
-          } else if (item == null){
+          } else if (item == null) {
             System.out.println(userInterface.defaultItem());
           } else {
             System.out.println(userInterface.notFood(secondWord));
           }
         }
         case "equip" -> {
-          Item item = player.findItem(player.getInventory(),secondWord);
-          if (item instanceof Weapon){
+          Item item = player.findItem(player.getInventory(), secondWord);
+          if (item instanceof Weapon) {
             player.equip((Weapon) item);
             System.out.println(userInterface.printEquippedWeapon() + item.getName());
-          } else if (item == null){//This covers also instances where user makes typing error such as pisol instead of pistol.
+          } else if (item == null) {//This covers also instances where user makes typing error such as pisol instead of pistol.
             System.out.println(userInterface.defaultItem());
           } else {
             System.out.println(userInterface.notWeapon(secondWord));
           }
         }
         case "attack" -> {
-          int damage = player.attack();
-          System.out.println(userInterface.printAttack(damage));
+          if (player.isEnemyIsPresent() == true) {
+            if (player.getEquippedWeapon() != null) {//Checks if user carries a weapon
+              int damage = player.attack();
+              System.out.println(userInterface.printAttack(damage));
+              player.getCurrentRoom().getEnemy().setEnemyHealth(damage);
+              System.out.println(player.getCurrentRoom().getEnemy().getEnemyHealth());
+              if (player.getCurrentRoom().getEnemy().getEnemyHealth() > 0) {
+                int enemyDamage = player.attack();
+
+                // TODO: 31/03/2022 Implement enemy attack
+              } else {
+                // TODO: 31/03/2022 Make enemy weapon availble in room
+              }
+              if (player.getHealth() <= 0) {
+                System.out.println(userInterface.gameOver());
+                programRunning = false;
+              }
+            } else {
+              System.out.println(userInterface.printUserFistFight());
+            }
+          } else {
+            System.out.println(userInterface.printNoEnemyPresent()); //This prints the scenario, where there is no enemy in the room.
+          }
         }
-          default -> System.out.println(userInterface.defaultCommand());
+        default -> System.out.println(userInterface.defaultCommand());
       }
       checkRoom5();
     }
   }
 
   //Userinput method
-  public String userInput(){
+  public String userInput() {
     String choice = sc.nextLine();
     choice = choice.toLowerCase();
     return choice;
   }
 
   //Methods to divide words
-  public String firstWord(String choice){
+  public String firstWord(String choice) {
     String space = " ";
     if (choice.contains(space)) {
       return choice.substring(0, choice.indexOf(space));
@@ -122,7 +143,7 @@ public class GameEngine {
     }
   }
 
-  public String secondWord(String choice){
+  public String secondWord(String choice) {
     String space = " ";
     if (choice.contains(space)) {
       return choice.substring(choice.indexOf(space) + 1);
@@ -142,16 +163,16 @@ public class GameEngine {
     }
   }
 
-    //Method to calculate health status
-    public String healthStatus ( int health){
-      String currentHealt;
-      if (health > 50) {
-        currentHealt = userInterface.printGoodShape();
-      } else if (health < 50 && health > 25) {
-        currentHealt = userInterface.printBeCautious();
-      } else {
-        currentHealt = userInterface.printBeCareful();
-      }
-      return userInterface.healthStatus(player.getHealth()) + ": " + currentHealt + '\n';
+  //Method to calculate health status
+  public String healthStatus(int health) {
+    String currentHealt;
+    if (health > 50) {
+      currentHealt = userInterface.printGoodShape();
+    } else if (health < 50 && health > 25) {
+      currentHealt = userInterface.printBeCautious();
+    } else {
+      currentHealt = userInterface.printBeCareful();
     }
+    return userInterface.healthStatus(player.getHealth()) + ": " + currentHealt + '\n';
   }
+}

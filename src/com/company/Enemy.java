@@ -17,8 +17,8 @@ public class Enemy {
     return enemyHealth;
   }
 
-  public void setEnemyHealth(int enemyHealth) {
-    this.enemyHealth = enemyHealth;
+  public void setEnemyHealth(int damage) {
+    this.enemyHealth = enemyHealth - damage;
   }
 
   public String getName() {

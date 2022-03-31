@@ -9,6 +9,7 @@ public class Player {
 
   private final int INVENTORYSIZE = 20;
 
+  private boolean enemyIsPresent = false;
   private boolean itemFound;
   private boolean gameOver = false;
   private int carriedItems;
@@ -18,6 +19,7 @@ public class Player {
   private ArrayList<Item> inventory = new ArrayList<>();
 
   private Weapon equippedWeapon = null;
+  private Enemy enemyPresent = null;
 
   private int health;
 
@@ -88,6 +90,15 @@ public class Player {
     return itemFound;
   }
 
+  public boolean isEnemyIsPresent(){
+    if (currentRoom.isEnemyPresent() == true){
+      this.enemyIsPresent = true;
+    } else {
+      this.enemyIsPresent = false;
+    }
+    return this.enemyIsPresent;
+  }
+
   public boolean isGameOver() {
     return gameOver;
   }
@@ -152,20 +163,35 @@ public class Player {
     this.equippedWeapon = weapon;
   }
 
+  public Weapon getEquippedWeapon() {
+    return equippedWeapon;
+  }
+
+  public Enemy getEnemyPresent() {
+    return enemyPresent;
+  }
+
+  public void setEnemyPresent(Enemy enemyPresent) {
+    this.enemyPresent = enemyPresent;
+  }
+
   public int attack() {
     int attackDamage;
-    if (equippedWeapon == null) {
-      //If player fights with bare fists, player can give damage between 1 and 20.
+    if (equippedWeapon == null) {//If player fights with bare fists, player can give damage between 1 and 20.
       attackDamage = (int) (Math.random() * 5 + 1);
-    } else if (equippedWeapon.canUse(equippedWeapon.getAmmunitionAmount())) {
-      attackDamage = attackRandomDamage();
-      equippedWeapon.decreaseAmmunitionAmount();
     } else {
-      equippedWeapon.setAmmunitionAmount(1);
-      attackDamage = 0;
+      attackDamage = attackRandomDamage();
+      if (equippedWeapon.canUse(equippedWeapon.getAmmunitionAmount())) {
+        equippedWeapon.decreaseAmmunitionAmount();
+      } else {
+        equippedWeapon.setAmmunitionAmount(1);
+        attackDamage = 0;
+      }
     }
     return attackDamage;
   }
+
+
 
   public int attackRandomDamage() {
     int damage = equippedWeapon.getDamage();
@@ -173,4 +199,6 @@ public class Player {
     int attackDamage = (damage/((int) (Math.random()*precision) + 1));
     return attackDamage;
   }
+
+
 }

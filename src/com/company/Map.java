@@ -126,7 +126,7 @@ public class Map {
     room8.setItems(sniper);
 
     //Adding enemies to rooms
-    room3.setEnemy(giraffePhant);
+    room1.setEnemy(giraffePhant);
     room7.setEnemy(vampire);
     room9.setEnemy(ghost);
   }
