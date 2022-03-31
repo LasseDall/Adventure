@@ -162,4 +162,12 @@ public class UserInterface {
   public String gameOver(){
     return "Game over! You have no more life";
   }
+
+  public String printEnemyHealth(int damageToEnemyHealth){
+    return "The enemy has " + damageToEnemyHealth + " health left";
+  }
+
+  public String printPlayerHealth(int damageToHealth){
+    return "The enemy hit you back! \nYou have " + damageToHealth + " health left";
+  }
 }

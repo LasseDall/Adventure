@@ -72,7 +72,7 @@ public class Map {
   RangeWeapon sniper = new RangeWeapon("Sniper","A 9mm sniper riffle with laser aim", 4,30,1,5);
 
   //Instantiating enemies
-  Enemy giraffePhant = new Enemy(150,"Giraffephant","A big elephant-look-a-like animal with a tall neck of a giraffe", bazooka);
+  Enemy giraffePhant = new Enemy(75,"Giraffephant","A big elephant-look-a-like animal with a tall neck of a giraffe", bazooka);
   Enemy ghost = new Enemy(50, "Ghost","A dark-shaded ghost that says woooohhooo", pistol);
   Enemy vampire = new Enemy(60,"Vampire","A white-headed vampire with sharp teeth",sword);
 

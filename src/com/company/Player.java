@@ -120,6 +120,10 @@ public class Player {
     }
   }
 
+  public void decreaseHealth(int healthDamage){
+    this.health = health - healthDamage;
+  }
+
   public void setCarriedItems(int carriedItems) {
     if (carriedItems <= 10) {
       this.carriedItems = carriedItems;
@@ -191,7 +195,13 @@ public class Player {
     return attackDamage;
   }
 
-
+public int enemyAttack(){
+    int attackDamage;
+    int tmpDamage = currentRoom.getEnemy().getWeapon().getDamage();
+    int tmpPrecision = currentRoom.getEnemy().getWeapon().getPrecision();
+    attackDamage = (tmpDamage/((int) (Math.random()*tmpPrecision) +1));
+    return attackDamage;
+}
 
   public int attackRandomDamage() {
     int damage = equippedWeapon.getDamage();

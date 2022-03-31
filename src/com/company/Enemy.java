@@ -47,6 +47,6 @@ public class Enemy {
 
   @Override
   public String toString() {
-    return enemyHealth +"\n" + name + '\n' + description + "\n" + weapon;
+    return "\n" + name + '\n' + "There is a " + description + "\n" + "It carries a " + weapon;
   }
 }

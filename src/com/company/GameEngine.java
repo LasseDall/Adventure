@@ -96,35 +96,48 @@ public class GameEngine {
           }
         }
         case "attack" -> {
-          if (player.isEnemyIsPresent() == true) {
-            if (player.getEquippedWeapon() != null) {//Checks if user carries a weapon
-              int damage = player.attack();
-              System.out.println(userInterface.printAttack(damage));
-              player.getCurrentRoom().getEnemy().setEnemyHealth(damage);
-              System.out.println(player.getCurrentRoom().getEnemy().getEnemyHealth());
-              if (player.getCurrentRoom().getEnemy().getEnemyHealth() > 0) {
-                int enemyDamage = player.attack();
-
-                // TODO: 31/03/2022 Implement enemy attack
-              } else {
-                // TODO: 31/03/2022 Make enemy weapon availble in room
+          if (player.getCurrentRoom().getEnemy() == null) {
+            System.out.println(userInterface.printNoEnemyPresent());}
+          else if(player.isEnemyIsPresent() == true) {
+              if (player.getEquippedWeapon() != null) {//Checks if user carries a weapon
+                int damage = player.attack();
+                System.out.println(userInterface.printAttack(damage));
+                player.getCurrentRoom().getEnemy().setEnemyHealth(damage);
+                int enemyHealth;
+                enemyHealth = player.getCurrentRoom().getEnemy().getEnemyHealth();
+                if (enemyHealth <= 0) {
+                  System.out.println("Enemy is dead");
+                  player.getCurrentRoom().setItems(player.getCurrentRoom().getEnemy().getWeapon());
+                  player.getCurrentRoom().setEnemy(null);
+                } else {
+                  System.out.println(userInterface.printEnemyHealth(enemyHealth));
+                }
+              }
+              if (player.getCurrentRoom().getEnemy() != null) {
+                if (player.getCurrentRoom().getEnemy().getEnemyHealth() > 0) {
+                  int enemyDamage = player.enemyAttack();
+                  player.decreaseHealth(enemyDamage);
+                  int tmp2;
+                  tmp2 = player.getHealth();
+                  if (player.getHealth() <= 0) {
+                    userInterface.gameOver();
+                    programRunning = false;
+                  }
+                  System.out.println(userInterface.printPlayerHealth(tmp2));
+                }
               }
               if (player.getHealth() <= 0) {
                 System.out.println(userInterface.gameOver());
                 programRunning = false;
               }
-            } else {
-              System.out.println(userInterface.printUserFistFight());
             }
-          } else {
-            System.out.println(userInterface.printNoEnemyPresent()); //This prints the scenario, where there is no enemy in the room.
           }
+          default -> System.out.println(userInterface.defaultCommand());
         }
-        default -> System.out.println(userInterface.defaultCommand());
+        checkRoom5();
       }
-      checkRoom5();
     }
-  }
+
 
   //Userinput method
   public String userInput() {
