@@ -19,7 +19,6 @@ public class Player {
   private ArrayList<Item> inventory = new ArrayList<>();
 
   private Weapon equippedWeapon = null;
-  private Enemy enemyPresent = null;
 
   private int health;
 
@@ -90,8 +89,8 @@ public class Player {
     return itemFound;
   }
 
-  public boolean isEnemyIsPresent(){
-    if (currentRoom.isEnemyPresent() == true){
+  public boolean isEnemyIsPresent() {
+    if (currentRoom.isEnemyPresent() == true) {
       this.enemyIsPresent = true;
     } else {
       this.enemyIsPresent = false;
@@ -120,7 +119,7 @@ public class Player {
     }
   }
 
-  public void decreaseHealth(int healthDamage){
+  public void decreaseHealth(int healthDamage) {
     this.health = health - healthDamage;
   }
 
@@ -171,14 +170,6 @@ public class Player {
     return equippedWeapon;
   }
 
-  public Enemy getEnemyPresent() {
-    return enemyPresent;
-  }
-
-  public void setEnemyPresent(Enemy enemyPresent) {
-    this.enemyPresent = enemyPresent;
-  }
-
   public int attack() {
     int attackDamage;
     if (equippedWeapon == null) {//If player fights with bare fists, player can give damage between 1 and 20.
@@ -195,18 +186,18 @@ public class Player {
     return attackDamage;
   }
 
-public int enemyAttack(){
+  public int enemyAttack() {
     int attackDamage;
     int tmpDamage = currentRoom.getEnemy().getWeapon().getDamage();
     int tmpPrecision = currentRoom.getEnemy().getWeapon().getPrecision();
-    attackDamage = (tmpDamage/((int) (Math.random()*tmpPrecision) +1));
+    attackDamage = (tmpDamage / ((int) (Math.random() * tmpPrecision) + 1));
     return attackDamage;
-}
+  }
 
   public int attackRandomDamage() {
     int damage = equippedWeapon.getDamage();
     int precision = equippedWeapon.getPrecision();
-    int attackDamage = (damage/((int) (Math.random()*precision) + 1));
+    int attackDamage = (damage / ((int) (Math.random() * precision) + 1));
     return attackDamage;
   }
 

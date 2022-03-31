@@ -118,7 +118,7 @@ public class UserInterface {
       textpiece = "You do not have any more ammunition. You did not cause any damage.\n" +
           "You have successfully reloaded your weapon and added 1 piece of ammunition";
     } else {
-      textpiece = "You hit! You caused " + damage + " damage";
+      textpiece = "You hit! You caused " + damage + " damage\n";
     }
     return textpiece;
   }
@@ -169,5 +169,9 @@ public class UserInterface {
 
   public String printPlayerHealth(int damageToHealth){
     return "The enemy hit you back! \nYou have " + damageToHealth + " health left";
+  }
+
+  public String enemyIsDead(String name){
+    return "Great job! The " + name + " is dead";
   }
 }

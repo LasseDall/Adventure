@@ -106,7 +106,7 @@ public class GameEngine {
                 int enemyHealth;
                 enemyHealth = player.getCurrentRoom().getEnemy().getEnemyHealth();
                 if (enemyHealth <= 0) {
-                  System.out.println("Enemy is dead");
+                  System.out.println(userInterface.enemyIsDead(player.getCurrentRoom().getEnemy().getName()));
                   player.getCurrentRoom().setItems(player.getCurrentRoom().getEnemy().getWeapon());
                   player.getCurrentRoom().setEnemy(null);
                 } else {
@@ -120,8 +120,9 @@ public class GameEngine {
                   int tmp2;
                   tmp2 = player.getHealth();
                   if (player.getHealth() <= 0) {
-                    userInterface.gameOver();
+                    System.out.println(userInterface.gameOver());
                     programRunning = false;
+                    break;
                   }
                   System.out.println(userInterface.printPlayerHealth(tmp2));
                 }
