@@ -200,6 +200,4 @@ public class Player {
     int attackDamage = (damage / ((int) (Math.random() * precision) + 1));
     return attackDamage;
   }
-
-
 }

@@ -43,15 +43,15 @@ public class UserInterface {
         "Go west:" + "\t \t \t" + "You move to a room west of you\n" +
         "Go up" + "\n" +
         "Go down" + "\n" +
-        "Look:" + "\t \t \t" + "You get to know what room you are in" + "\n" +
-        "Help:" + "\t \t \t" + "Get an overview of all commands\n" +
+        "Look:" + "\t \t \t \t" + "You get to know what room you are in" + "\n" +
+        "Help:" + "\t \t \t \t" + "Get an overview of all commands\n" +
         "Take ITEM:" + "\t \t \t" + "Take followed by the item you wish to take" + "\n" +
         "Drop ITEM:" + "\t \t \t" + "Followed by the item you wish to drop)" + "\n" +
         "Eat ITEM: " + "\t \t \t" + "Followed by the item you wish to eat)" + "\n" +
         "Health: " + "\t \t \t" + "You get to know your health status" + "\n" +
         "Attack: " + "\t \t \t" + "You attack with the weapon you have. But remember to first equip your weapon" + "\n" +
-        "Equip: " + "\t \t \t" + "You equip a weapon if you have one in your inventory" + "\n" +
-        "Exit\n");
+        "Equip: " + "\t \t \t \t" + "You equip a weapon if you have one in your inventory" + "\n" +
+        "Exit: " + "\t \t \t \t" + "You exit the game" + "\n");
     System.out.println("---------------------------------------------------------");
   }
 
@@ -67,6 +67,7 @@ public class UserInterface {
 
   //Print make choice
   public void printChoice() {
+    System.out.println("---------------------------------------------------------");
     System.out.println("Make your choice");
   }
 
